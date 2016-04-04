@@ -4642,3 +4642,15 @@ Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b098
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-02 00:15:45 -0400
+
+
+Started GET "/" for ::1 at 2016-04-04 12:19:25 -0400
+Processing by MeetingsController#index as HTML
+  Rendered meetings/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 483ms (Views: 482.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-04 12:19:25 -0400
+Processing by MeetingsController#index as HTML
+  Rendered meetings/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
