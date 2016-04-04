@@ -1,5 +1,4 @@
 require "viewpoint"
-require "pry"
 include Viewpoint::EWS
 
 endpoint = "https://domain.com/ews/Exchange.asmx"
