@@ -1,16 +1,21 @@
 FactoryGirl.define do
-  # Below are example factories that can be used
-  # in your unit and acceptance tests.
-  
-  # factory :person do
-  #   fname "John"
-  #   lname "Doe"
-  # end
-  #
-  # factory :car do
-  #   color "black"
-  #   type "S"
-  #   maker "Tesla"
-  #   person
-  # end
+  factory :meeting do
+    name "Discuss App Requirements"
+    attendees "John Doe, Jane Doe"
+    date DateTime.now
+    description "Discuss goals, specs, and deadline."
+    location "Virtual"
+  end
+
+  factory :note do
+    content "App should be delivered within two weeks."
+
+    meeting
+  end
+
+  factory :note_type do
+    name "Pre"
+
+    note
+  end
 end

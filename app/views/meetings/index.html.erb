@@ -27,27 +27,31 @@
 <section id="meetings-container">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<div class="card">
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-				<div class="inline-block meeting-time">
-					<small>
-						8:00 AM
+			<% @meetings.each do |meeting| %>
+				<div class="card">
+					<div class="pull-right">
+						<i class="fa fa-plus-circle fa-3x"></i>
+					</div>
+					<div class="inline-block meeting-time">
+						<small>
+							<%= meeting.date.strftime("%I:%M %p") %>
+							<br>
+							<span class="medium-gray">
+								<%= meeting.date.strftime("%I:%M %p") %>
+							</span>
+						</small>
+					</div>
+					<div class="inline-block meeting-name">
+						<strong>
+							<%= truncate(meeting.name.upcase, length: 29) %>
+							<br>
+							<i class="fa fa-circle-o"></i>
+							<i class="fa fa-dot-circle-o"></i>
+						</strong>
 						<br>
-						<span class="medium-gray">9:00 AM</span>
-					</small>
+					</div>
 				</div>
-				<div class="inline-block meeting-name">
-					<strong>
-						BREAKFAST
-						<br>
-						<i class="fa fa-circle-o"></i>
-						<i class="fa fa-dot-circle-o"></i>
-					</strong>
-					<br>
-				</div>
-			</div>
+			<% end %>
 			<div class="card">
 				<div class="pull-right">
 					<i class="fa fa-plus-circle fa-3x"></i>
