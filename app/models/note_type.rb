@@ -1,6 +1,6 @@
 class NoteType < ActiveRecord::Base
-	belongs_to :note
+	has_many :note_records
+	has_many :notes, through: :note_records
 
 	validates :name, presence: true
-	validates :note, presence: true
 end

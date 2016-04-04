@@ -34,133 +34,36 @@
 					</div>
 					<div class="inline-block meeting-time">
 						<small>
-							<%= meeting.date.strftime("%I:%M %p") %>
+							<%= meeting.start_date.strftime("%I:%M %p") %>
 							<br>
 							<span class="medium-gray">
-								<%= meeting.date.strftime("%I:%M %p") %>
+								<%= meeting.end_date.strftime("%I:%M %p") %>
 							</span>
 						</small>
 					</div>
 					<div class="inline-block meeting-name">
-						<strong>
-							<%= truncate(meeting.name.upcase, length: 29) %>
-							<br>
-							<i class="fa fa-circle-o"></i>
-							<i class="fa fa-dot-circle-o"></i>
-						</strong>
+						<% if meeting.has_notes? %>
+							<strong>
+								<%= truncate(meeting.subject.upcase, length: 29) %>
+								<br>
+								<% if meeting.has_pre_notes? %>
+									<i class="fa fa-circle-o"></i>
+								<% end %>
+								<% if meeting.has_current_notes? %>
+									<i class="fa fa-dot-circle-o"></i>
+								<% end %>
+								<% if meeting.has_post_notes? %>
+									<i class="fa fa-circle"></i>
+								<% end %>
+							</strong>
+						<% else %>
+								<%= truncate(meeting.subject.upcase, length: 29) %>
+								<br>
+						<% end %>
 						<br>
 					</div>
 				</div>
 			<% end %>
-			<div class="card">
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-				<div class="inline-block meeting-time">
-					<small>
-						1:45 PM
-						<br>
-						<span class="medium-gray">3:00 PM</span>
-					</small>
-				</div>
-				<div class="inline-block meeting-name">
-					<span>LUNCH</span>
-					<br>
-					<br>
-				</div>
-			</div>
-			<div class="card">
-				<div class="inline-block meeting-time">
-					<small>
-						7:00 PM
-						<br>
-						<span class="medium-gray">7:30 PM</span>
-					</small>
-				</div>
-				<div class="inline-block meeting-name">
-					<strong>
-						DINNER
-						<br>
-						<i class="fa fa-circle-o"></i>
-						<i class="fa fa-dot-circle-o"></i>
-						<i class="fa fa-circle"></i>
-					</strong>
-					<br>
-				</div>
-			</div>
-			<div class="card">
-				<div class="inline-block meeting-time">
-					<small>
-						8:30 PM
-						<br>
-						<span class="medium-gray">9:00 PM</span>
-					</small>
-				</div>
-				<div class="inline-block meeting-name">
-					<strong>
-						DESSERT
-						<br>
-						<i class="fa fa-circle-o"></i>
-						<i class="fa fa-dot-circle-o"></i>
-						<i class="fa fa-circle"></i>
-					</strong>
-					<br>
-				</div>
-			</div>
-			<div class="card">
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-				<div class="inline-block meeting-time">
-					<small>
-						10:30 PM
-						<br>
-						<span class="medium-gray">10:45 PM</span>
-					</small>
-				</div>
-				<div class="inline-block meeting-name">
-					<span>LATE NIGHT SNACK</span>
-					<br>
-					<br>
-				</div>
-			</div>
-			<div class="card">
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-				<div class="inline-block meeting-time">
-					<small>
-						2:18 AM
-						<br>
-						<span class="medium-gray">3:00 AM</span>
-					</small>
-				</div>
-				<div class="inline-block meeting-name">
-					<span>DRUNK FOOD</span>
-					<br>
-					<br>
-				</div>
-			</div>
-			<div class="card">
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-				<div class="inline-block meeting-time">
-					<small>
-						3:45 AM
-						<br>
-						<span class="medium-gray">7:30 AM</span>
-					</small>
-				</div>
-				<div class="inline-block meeting-name">
-					<strong>
-						SLEEP
-						<br>
-						<i class="fa fa-circle-o"></i>
-					</strong>
-					<br>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>

@@ -1,9 +1,11 @@
 FactoryGirl.define do
   factory :meeting do
-    name "Discuss App Requirements"
+    organizer "John Doe"
+    subject "Discuss App Requirements"
+    start_date DateTime.now
+    end_date DateTime.now
     attendees "John Doe, Jane Doe"
-    date DateTime.now
-    description "Discuss goals, specs, and deadline."
+    body "Discuss goals, specs, and deadline."
     location "Virtual"
   end
 
@@ -15,7 +17,10 @@ FactoryGirl.define do
 
   factory :note_type do
     name "Pre"
+  end
 
+  factory :note_record do
     note
+    note_type
   end
 end
