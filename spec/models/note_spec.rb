@@ -5,6 +5,8 @@ RSpec.describe Note, type: :model do
 
   describe "associatons" do
     it { should belong_to(:meeting) }
+    it { should have_many(:note_records) }
+    it { should have_many(:note_types) }
   end
 
   describe "validations" do
@@ -12,7 +14,7 @@ RSpec.describe Note, type: :model do
 		it { should validate_presence_of(:meeting) }
   end
 
-  describe "#initialization" do
+  describe "initialization" do
     context "every note has certain details" do
       it "returns content" do
         expect(note.content).to eq("App should be delivered within two weeks.")
