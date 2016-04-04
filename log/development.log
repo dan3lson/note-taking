@@ -4654,3 +4654,30 @@ Started GET "/" for ::1 at 2016-04-04 12:19:25 -0400
 Processing by MeetingsController#index as HTML
   Rendered meetings/index.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-04 13:56:10 -0400
+Processing by MeetingsController#index as HTML
+  Rendered meetings/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5678ms (Views: 5677.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-3ff9bd51f2fcec7f0474771c7ce5efd27ccac4c0fcd5561a82b7650a1ef3dd7e.css?body=1" for ::1 at 2016-04-04 13:56:16 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-04 13:56:16 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-04 13:56:16 -0400
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for ::1 at 2016-04-04 13:56:16 -0400
+
+
+Started GET "/assets/font-awesome.self-c1a7a80b6536c3397a1a212c9bd22298ae69260ee343d00b60d7f41fa54a59a8.css?body=1" for ::1 at 2016-04-04 13:56:16 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2016-04-04 13:56:16 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-04 13:56:16 -0400
