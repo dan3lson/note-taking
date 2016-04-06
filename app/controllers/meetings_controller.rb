@@ -10,6 +10,7 @@ class MeetingsController < ApplicationController
 
 	def show
 		@meeting = Meeting.find(params[:id])
+		@note = Note.new
 
 		respond_to do |format|
       format.js

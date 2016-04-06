@@ -11,9 +11,9 @@
 				</small>
 			</div>
 			<div class="inline-block card-left-padding">
-				<%= shorten(meeting.subject, 30) %>
+				<%= shorten(meeting.subject) %>
 				<br>
-				<%= render "meetings/note_icons", meeting: meeting %>
+				<%= render "notes/note_type_icons", meeting: meeting %>
 				<br>
 			</div>
 		</div>
@@ -30,30 +30,29 @@
 			</p>
 		</div>
 		<div class="card">
-			<% unless meeting.has_pre_notes? %>
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-			<% end %>
+			<div class="pull-right" id="pre-note-btn-container">
+				<%= render "notes/note_btn_icons", note: meeting.has_pre_notes? %>
+			</div>
 			<p>
 				<i class="fa fa-circle-o"></i>
 				Pre Notes
 			</p>
 			<br>
-			<p>
+			<p id="pre-note-body">
 				<% if meeting.has_pre_notes? %>
 					<%= meeting.pre_notes %>
 				<% else %>
 					<small class="medium-gray">Empty</small>
 				<% end %>
 			</p>
+			<div id="pre-notes-form"></div>
+			<!-- Figure out how to pass these variables in the ajax new.js.erb -->
+			<%= render "notes/form", meeting: meeting, note: @note, type: "Pre" %>
 		</div>
 		<div class="card">
-			<% unless meeting.has_current_notes? %>
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-			<% end %>
+			<div class="pull-right" id="current-note-btn-container">
+				<%= render "notes/note_btn_icons", note: meeting.has_current_notes? %>
+			</div>
 			<p>
 				<i class="fa fa-dot-circle-o"></i>
 				Current Notes
@@ -68,11 +67,9 @@
 			</p>
 		</div>
 		<div class="card">
-			<% unless meeting.has_post_notes? %>
-				<div class="pull-right">
-					<i class="fa fa-plus-circle fa-3x"></i>
-				</div>
-			<% end %>
+			<div class="pull-right" id="post-note-btn-container">
+				<%= render "notes/note_btn_icons", note: meeting.has_post_notes? %>
+			</div>
 			<p>
 				<i class="fa fa-circle"></i>
 				Post Notes
