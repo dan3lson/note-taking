@@ -1,69 +1,7 @@
-<section id="header-container">
-	<div class="row center">
-		<div class="col-sm-6 col-sm-offset-3">
-			<h1><%= todays_date %></h1>
-			<p>
-				<%= time_of_day %>, Ben. It's currently <%= current_time %>.
-			</p>
-		</div>
-	</div>
+<%= render "layouts/nav.html.erb" %>
+
+<section id="meetings-index">
+	<%= render "meetings/index", meetings: @meetings %>
 </section>
 
-<section id="filter-container">
-	<div class="row center">
-		<div class="col-xs-6">
-			<i class="fa fa-list-alt fa-3x"></i>
-			<br>
-			Today <span class="badge">6</span>
-		</div>
-		<div class="col-xs-6">
-			<i class="fa fa-calendar fa-3x"></i>
-			<br>
-			Calendar
-		</div>
-	</div>
-</section>
-
-<section id="meetings-container">
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<% @meetings.each do |meeting| %>
-				<div class="card">
-					<div class="pull-right">
-						<i class="fa fa-plus-circle fa-3x"></i>
-					</div>
-					<div class="inline-block meeting-time">
-						<small>
-							<%= meeting.start_date.strftime("%I:%M %p") %>
-							<br>
-							<span class="medium-gray">
-								<%= meeting.end_date.strftime("%I:%M %p") %>
-							</span>
-						</small>
-					</div>
-					<div class="inline-block meeting-name">
-						<% if meeting.has_notes? %>
-							<strong>
-								<%= truncate(meeting.subject.upcase, length: 29) %>
-								<br>
-								<% if meeting.has_pre_notes? %>
-									<i class="fa fa-circle-o"></i>
-								<% end %>
-								<% if meeting.has_current_notes? %>
-									<i class="fa fa-dot-circle-o"></i>
-								<% end %>
-								<% if meeting.has_post_notes? %>
-									<i class="fa fa-circle"></i>
-								<% end %>
-							</strong>
-						<% else %>
-								<%= truncate(meeting.subject.upcase, length: 29) %>
-								<br>
-						<% end %>
-						<br>
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
-</section>
+<section id="meeting-show"></section>

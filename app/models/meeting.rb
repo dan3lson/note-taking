@@ -10,6 +10,11 @@ class Meeting < ActiveRecord::Base
 		notes.count > 0
 	end
 
+	# not tested
+	def has_all_notes?
+		notes.count == 3
+	end
+
 	def note_types
 		notes = Note.where(meeting: self)
 		notes.map { |n| n.note_types }.flatten.map { |nr| nr.name }
@@ -25,5 +30,28 @@ class Meeting < ActiveRecord::Base
 
 	def has_post_notes?
 		note_types.include?("Post")
+	end
+
+	# note tested
+	def notes
+		Note.where(meeting: self)
+	end
+
+	# not tested
+	def pre_notes
+		note_record = NoteRecord.where(note: self.notes, note_type_id: 1).first
+		note_record.note.content
+	end
+
+	# not tested
+	def current_notes
+		note_record = NoteRecord.where(note: self.notes, note_type_id: 2).first
+		note_record.note.content
+	end
+
+	# not tested
+	def post_notes
+		note_record = NoteRecord.where(note: self.notes, note_type_id: 3).first
+		note_record.note.content
 	end
 end

@@ -1,0 +1,4 @@
+$("#meeting-show").hide();
+$('#meetings-index').hide().html(
+	"<%= j render(partial: 'meetings/index', locals: { meetings: @meetings }) %>"
+).fadeIn(400);

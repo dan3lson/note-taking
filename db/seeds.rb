@@ -31,7 +31,7 @@ Rails.logger.info "==============================================="
 Rails.logger.info "Creating Notes"
 Rails.logger.info "==============================================="
 
-meetings = Meeting.all
+meetings = Meeting.all.shuffle
 
 note_1 = Note.create!(
 	content: Faker::Lorem.paragraph,
@@ -40,12 +40,12 @@ note_1 = Note.create!(
 Rails.logger.info "Note #{note_1.id} created."
 note_2 = Note.create!(
 	content: Faker::Lorem.paragraph,
-	meeting: meetings[1]
+	meeting: meetings[0]
 )
 Rails.logger.info "Note #{note_2.id} created."
 note_3 = Note.create!(
 	content: Faker::Lorem.paragraph,
-	meeting: meetings[2]
+	meeting: meetings[0]
 )
 Rails.logger.info "Note #{note_3.id} created."
 note_4 = Note.create!(
@@ -73,44 +73,24 @@ note_record_1_pre = NoteRecord.create!(
 	note: notes[0],
 	note_type: pre_note_type
 )
-note_record_1_current = NoteRecord.create!(
-	note: notes[0],
-	note_type: current_note_type
-)
 Rails.logger.info "NoteRecord #{note_record_1_pre.id} created."
-Rails.logger.info "NoteRecord #{note_record_1_current.id} created."
-note_record_2_pre = NoteRecord.create!(
-	note: notes[1],
-	note_type: pre_note_type
-)
 note_record_2_current = NoteRecord.create!(
-note: notes[1],
-note_type: current_note_type
+	note: notes[1],
+	note_type: current_note_type
 )
-Rails.logger.info "NoteRecord #{note_record_2_pre.id} created."
 Rails.logger.info "NoteRecord #{note_record_2_current.id} created."
-note_record_3 = NoteRecord.create!(
+note_record_3_current = NoteRecord.create!(
 	note: notes[2],
-	note_type: pre_note_type
-)
-Rails.logger.info "NoteRecord #{note_record_3.id} created."
-note_record_4 = NoteRecord.create!(
-	note: notes[3],
-	note_type: current_note_type
-)
-Rails.logger.info "NoteRecord #{note_record_4.id} created."
-note_record_5_pre = NoteRecord.create!(
-	note: notes[4],
-	note_type: pre_note_type
-)
-note_record_5_current = NoteRecord.create!(
-	note: notes[4],
-	note_type: current_note_type
-)
-note_record_5_post = NoteRecord.create!(
-	note: notes[4],
 	note_type: post_note_type
 )
-Rails.logger.info "NoteRecord #{note_record_5_pre.id} created."
-Rails.logger.info "NoteRecord #{note_record_5_current.id} created."
+Rails.logger.info "NoteRecord #{note_record_3_current.id} created."
+note_record_4_pre = NoteRecord.create!(
+	note: notes[3],
+	note_type: pre_note_type
+)
+Rails.logger.info "NoteRecord #{note_record_4_pre.id} created."
+note_record_5_post = NoteRecord.create!(
+note: notes[4],
+note_type: post_note_type
+)
 Rails.logger.info "NoteRecord #{note_record_5_post.id} created."
