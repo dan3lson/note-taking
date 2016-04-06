@@ -1,0 +1,90 @@
+<div class="row" id="meeting-show-header">
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="card" id="meeting-show-page">
+			<div class="inline-block meeting-time">
+				<small>
+					<%= meeting.start_date.strftime("%I:%M %p") %>
+					<br>
+					<span class="medium-gray">
+						<%= meeting.end_date.strftime("%I:%M %p") %>
+					</span>
+				</small>
+			</div>
+			<div class="inline-block card-left-padding">
+				<%= shorten(meeting.subject, 30) %>
+				<br>
+				<%= render "meetings/note_icons", meeting: meeting %>
+				<br>
+			</div>
+		</div>
+		<div class="card">
+			<p>
+				<i class="fa fa-group"></i>
+				Attendees (<%= num_attendees(meeting) %>)
+			</p>
+			<br>
+			<p>
+				<% attendees(meeting).each_with_index do |name, i| %>
+					<%= name %><%= "," unless last_item?(i, num_attendees(meeting)) %>
+				<% end %>
+			</p>
+		</div>
+		<div class="card">
+			<% unless meeting.has_pre_notes? %>
+				<div class="pull-right">
+					<i class="fa fa-plus-circle fa-3x"></i>
+				</div>
+			<% end %>
+			<p>
+				<i class="fa fa-circle-o"></i>
+				Pre Notes
+			</p>
+			<br>
+			<p>
+				<% if meeting.has_pre_notes? %>
+					<%= meeting.pre_notes %>
+				<% else %>
+					<small class="medium-gray">Empty</small>
+				<% end %>
+			</p>
+		</div>
+		<div class="card">
+			<% unless meeting.has_current_notes? %>
+				<div class="pull-right">
+					<i class="fa fa-plus-circle fa-3x"></i>
+				</div>
+			<% end %>
+			<p>
+				<i class="fa fa-dot-circle-o"></i>
+				Current Notes
+			</p>
+			<br>
+			<p>
+				<% if meeting.has_current_notes? %>
+					<%= meeting.current_notes %>
+				<% else %>
+					<small class="medium-gray">Empty</small>
+				<% end %>
+			</p>
+		</div>
+		<div class="card">
+			<% unless meeting.has_post_notes? %>
+				<div class="pull-right">
+					<i class="fa fa-plus-circle fa-3x"></i>
+				</div>
+			<% end %>
+			<p>
+				<i class="fa fa-circle"></i>
+				Post Notes
+			</p>
+			<br>
+			<p>
+				<% if meeting.has_post_notes? %>
+					<%= meeting.post_notes %>
+				<% else %>
+					<small class="medium-gray">Empty</small>
+				<% end %>
+			</p>
+		</div>
+	</div>
+</div>

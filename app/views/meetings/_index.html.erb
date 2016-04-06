@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<% meetings.each do |m| %>
+			<div class="card">
+				<div class="inline-block meeting-time">
+					<small>
+						<%= m.start_date.strftime("%I:%M %p") %>
+						<br>
+						<span class="medium-gray">
+							<%= m.end_date.strftime("%I:%M %p") %>
+						</span>
+					</small>
+				</div>
+				<div class="inline-block card-left-padding">
+					<%= link_to shorten(m.subject, 30), m, {
+						remote: true,
+						title: m.subject
+					} %>
+					<br>
+					<%= render "meetings/note_icons", meeting: m %>
+					<br>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

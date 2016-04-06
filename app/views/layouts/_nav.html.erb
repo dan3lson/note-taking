@@ -1,0 +1,27 @@
+<section id="header-container">
+	<div class="row center">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h1><%= todays_date %></h1>
+			<p>
+				<%= time_of_day %>, Ben. It's currently <%= current_time %>.
+			</p>
+		</div>
+	</div>
+</section>
+
+<section id="filter-container">
+	<div class="row center">
+		<div class="col-xs-6" id="today-link">
+			<%= link_to meetings_path, remote: true do %>
+				<i class="fa fa-list-alt fa-3x"></i>
+				<br>
+				Today <span class="badge">TBD</span>
+			<% end %>
+		</div>
+		<div class="col-xs-6 medium-gray">
+			<i class="fa fa-calendar fa-3x"></i>
+			<br>
+			Calendar
+		</div>
+	</div>
+</section>
