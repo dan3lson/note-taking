@@ -1,0 +1,5 @@
+$("#pre-note-btn-container").hide();
+$("#pre-note-body").hide();
+$('#pre-notes-form').hide().html(
+	"<%= j render(partial: 'notes/form', locals: { meeting: @meeting }) %>"
+).fadeIn(400);

@@ -12,12 +12,12 @@
 					</small>
 				</div>
 				<div class="inline-block card-left-padding">
-					<%= link_to shorten(m.subject, 30), m, {
+					<%= link_to shorten(m.subject), m, {
 						remote: true,
 						title: m.subject
 					} %>
 					<br>
-					<%= render "meetings/note_icons", meeting: m %>
+					<%= render "notes/note_type_icons", meeting: m %>
 					<br>
 				</div>
 			</div>

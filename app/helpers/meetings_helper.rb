@@ -40,7 +40,7 @@ module MeetingsHelper
 	end
 
 	# not tested
-	def shorten(string, length)
-		truncate(string.upcase, length: length)
+	def shorten(string)
+		truncate(string.upcase, length: 25)
 	end
 end
