@@ -1,7 +1,11 @@
 class NotesController < ApplicationController
 	def new
-		respond_to |format| do
-			format.js
-		end
+		@meeting = Meeting.find(params[:meeting_id])
+		@note = Note.new
+		@type = params[:type]
+
+		respond_to do |format|
+      format.js
+    end
 	end
 end

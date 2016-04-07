@@ -1,5 +1,13 @@
-$("#pre-note-btn-container").hide();
-$("#pre-note-body").hide();
-$('#pre-notes-form').hide().html(
-	"<%= j render(partial: 'notes/form', locals: { meeting: @meeting }) %>"
-).fadeIn(400);
+$(".fa-plus-circle").click(function() {
+	console.log("NEW JS ERB");
+	$("#pre-note-btn-container").hide();
+	$("#pre-note-body").hide();
+	$('#pre-notes-form').hide().html(
+		"<%= j render(partial: 'notes/form', locals: { meeting: @meeting, note: @note, type: @type }) %>"
+	).fadeIn(400);
+});
+
+$(".cancel-note-btn").click(function() {
+	$("#pre-notes-form").hide();
+	$("#pre-note-btn-container").fadeIn();
+});
