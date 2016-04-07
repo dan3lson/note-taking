@@ -59,9 +59,11 @@ body {
 }
 .fa-pencil-square-o {
   color: $orange;
+  cursor: pointer;
 }
 .fa-plus-circle {
   color: $green;
+  cursor: pointer;
 }
 #filter-container {
   background: #F5F5F5;
@@ -95,6 +97,9 @@ body {
 .meeting-time {
   border-right: 1px solid #000;
   padding-right: 10px;
+}
+.pointer {
+  cursor: pointer;
 }
 .row {
   margin-right: 0;

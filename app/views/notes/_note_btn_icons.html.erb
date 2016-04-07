@@ -1,5 +1,7 @@
 <% if note %>
 	<i class="fa fa-pencil-square-o fa-2x"></i>
 <% else %>
+	<%= link_to new_meeting_note_path(meeting, type: type), remote: true do %>
 		<i class="fa fa-plus-circle fa-2x"></i>
+	<% end %>
 <% end %>

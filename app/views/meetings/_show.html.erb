@@ -31,7 +31,10 @@
 		</div>
 		<div class="card">
 			<div class="pull-right" id="pre-note-btn-container">
-				<%= render "notes/note_btn_icons", note: meeting.has_pre_notes? %>
+				<%= render "notes/note_btn_icons",
+					meeting: meeting,
+					note: meeting.has_pre_notes?,
+					type: "Pre" %>
 			</div>
 			<p>
 				<i class="fa fa-circle-o"></i>
@@ -46,12 +49,10 @@
 				<% end %>
 			</p>
 			<div id="pre-notes-form"></div>
-			<!-- Figure out how to pass these variables in the ajax new.js.erb -->
-			<%= render "notes/form", meeting: meeting, note: @note, type: "Pre" %>
 		</div>
 		<div class="card">
 			<div class="pull-right" id="current-note-btn-container">
-				<%= render "notes/note_btn_icons", note: meeting.has_current_notes? %>
+				<%#= render "notes/note_btn_icons", note: meeting.has_current_notes? %>
 			</div>
 			<p>
 				<i class="fa fa-dot-circle-o"></i>
@@ -68,7 +69,7 @@
 		</div>
 		<div class="card">
 			<div class="pull-right" id="post-note-btn-container">
-				<%= render "notes/note_btn_icons", note: meeting.has_post_notes? %>
+				<%#= render "notes/note_btn_icons", note: meeting.has_post_notes? %>
 			</div>
 			<p>
 				<i class="fa fa-circle"></i>
