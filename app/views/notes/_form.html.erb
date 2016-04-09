@@ -1,22 +1,23 @@
-<div class="well">
+<div>
 	<h4>Add New Note</h4>
+	<br>
 	<%= form_for [meeting, note] do |f| %>
 		<%= render "shared/error_messages", object: note %>
-		<%= hidden_field_tag :type, type %>
+
+		<div class="form-group">
+			<%= f.collection_select :id, NoteType.all, :id, :name,
+				{ include_blank: false, prompt: "select one" },
+				{ class: "form-control" } %>
+		</div>
+		<br>
 		<div class="form-group">
 			<%= f.label :content, class: "sr-only" %>
-			<%= f.text_area :content, class:"form-control", rows: 3,
+			<%= f.text_area :content, class: "form-control", rows: 3,
 											placeholder: "Content" %>
 		</div>
 		<p>
 			<%= submit_tag "Create", class: "form-control btn btn-success",
 															 disabled: true %>
-		</p>
-		<p>
-			<button type="button"
-							class="btn btn-default btn-block cancel-note-btn">
-			Cancel
-		</button>
 		</p>
 	<% end %>
 </div>
