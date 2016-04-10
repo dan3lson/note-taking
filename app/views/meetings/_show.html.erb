@@ -31,7 +31,7 @@
 		</div>
 		<div class="card">
 			<div class="pull-right" id="pre-note-btn-container">
-				<%= render "notes/note_btn_icons",
+				<%= render "notes/note_crud_links",
 					meeting: meeting,
 					note_exists: meeting.has_pre_notes?,
 					type: "Pre" %>
@@ -43,7 +43,7 @@
 			<br>
 			<p id="pre-note-body">
 				<% if meeting.has_pre_notes? %>
-					<%= meeting.pre_notes %>
+					<%= meeting.pre_note_content %>
 				<% else %>
 					<small class="medium-gray">Empty</small>
 				<% end %>
@@ -51,7 +51,7 @@
 		</div>
 		<div class="card">
 			<div class="pull-right" id="current-note-btn-container">
-				<%= render "notes/note_btn_icons",
+				<%= render "notes/note_crud_links",
 					meeting: meeting,
 					note_exists: meeting.has_current_notes?,
 					type: "Current" %>
@@ -63,7 +63,7 @@
 			<br>
 			<p id="current-note-body">
 				<% if meeting.has_current_notes? %>
-					<%= meeting.current_notes %>
+					<%= meeting.current_note_content %>
 				<% else %>
 					<small class="medium-gray">Empty</small>
 				<% end %>
@@ -71,7 +71,7 @@
 		</div>
 		<div class="card">
 			<div class="pull-right" id="post-note-btn-container">
-				<%= render "notes/note_btn_icons",
+				<%= render "notes/note_crud_links",
 					meeting: meeting,
 					note_exists: meeting.has_post_notes?,
 					type: "Post" %>
@@ -83,7 +83,7 @@
 			<br>
 			<p id="post-note-body">
 				<% if meeting.has_post_notes? %>
-					<%= meeting.post_notes %>
+					<%= meeting.post_note_content %>
 				<% else %>
 					<small class="medium-gray">Empty</small>
 				<% end %>

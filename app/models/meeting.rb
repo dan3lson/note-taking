@@ -32,26 +32,42 @@ class Meeting < ActiveRecord::Base
 		note_types.include?("Post")
 	end
 
-	# notetested
+	# not tested
 	def notes
 		Note.where(meeting: self)
 	end
 
-	# not tested
-	def pre_notes
-		note_record = NoteRecord.where(note: self.notes, note_type_id: 1).first
-		note_record.note.content
+	def retrieve_note(note_type_id)
+		NoteRecord.find_by(note: self.notes, note_type_id: note_type_id).note
 	end
 
 	# not tested
-	def current_notes
-		note_record = NoteRecord.where(note: self.notes, note_type_id: 2).first
-		note_record.note.content
+	def pre_note
+		retrieve_note(1)
 	end
 
 	# not tested
-	def post_notes
-		note_record = NoteRecord.where(note: self.notes, note_type_id: 3).first
-		note_record.note.content
+	def current_note
+		retrieve_note(2)
+	end
+
+	# not tested
+	def post_note
+		retrieve_note(3)
+	end
+
+	# not tested
+	def pre_note_content
+		pre_note.content
+	end
+
+	# not tested
+	def current_note_content
+		current_note.content
+	end
+
+	# not tested
+	def post_note_content
+		post_note.content
 	end
 end
