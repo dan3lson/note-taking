@@ -18,4 +18,14 @@ module MeetingsHelper
 	def shorten(string)
 		truncate(string.upcase, length: 25)
 	end
+
+	# not tested
+	def meetings_for_today
+		Meeting.where("created_at >= ?", Time.zone.now.beginning_of_day)
+	end
+
+	# not tested
+	def num_meetings_for_today
+		meetings_for_today.count
+	end
 end

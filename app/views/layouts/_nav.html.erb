@@ -15,7 +15,10 @@
 			<%= link_to meetings_path, remote: true do %>
 				<i class="fa fa-list-alt fa-3x"></i>
 				<br>
-				Today <span class="badge">TBD</span>
+				Today
+				<span class="badge">
+					<%= num_meetings_for_today %>
+				</span>
 			<% end %>
 		</div>
 		<div class="col-xs-6 medium-gray">

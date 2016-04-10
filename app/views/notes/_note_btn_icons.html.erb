@@ -1,7 +1,7 @@
-<% if note %>
-	<i class="fa fa-pencil-square-o fa-2x"></i>
+<% if note_exists %>
+	<small class="orange note-link">Update</small>
+	&nbsp;
+	<small class="red note-link">Delete</small>
 <% else %>
-	<%= link_to new_meeting_note_path(meeting, type: type), remote: true do %>
-		<i class="fa fa-plus-circle fa-2x"></i>
-	<% end %>
+	<small class="green note-link">Add</small>
 <% end %>

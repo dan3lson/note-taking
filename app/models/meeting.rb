@@ -32,7 +32,7 @@ class Meeting < ActiveRecord::Base
 		note_types.include?("Post")
 	end
 
-	# note tested
+	# notetested
 	def notes
 		Note.where(meeting: self)
 	end

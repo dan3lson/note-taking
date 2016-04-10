@@ -1,14 +1,20 @@
 $(document).ready(function() {
+	$("#meeting-show").on("click", ".note-link", function() {
+		var note_type = $(this).parent()[0].id.split("-")[0];
 
-	function change_dropdown_value(btn_selector, dropdown_selector) {
-		var $product_value = $(btn_selector).data("product-value");
-		$(dropdown_selector).val($product_value);
-		display_passing_border_color(dropdown_selector);
+		change_dropdown_value(note_type, "#note_id");
+		scroll_to("#create-note-container");
+	});
+
+	function change_dropdown_value(note_type, dropdown_selector) {
+		$(dropdown_selector).val(capitlize_first_letter(note_type));
 	}
 
-	$(".fa-plus-circle").click(function() {
-		debugger;
-	});
+	function capitlize_first_letter(string) {
+		return string.replace(string[0], function(letter) {
+			return letter.toUpperCase();
+		});
+	}
 
 	function scroll_to(location) {
 		$("html, body").animate({ scrollTop: $(location).offset().top }, "slow");
