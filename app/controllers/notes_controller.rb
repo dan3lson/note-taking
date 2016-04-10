@@ -31,12 +31,33 @@ class NotesController < ApplicationController
 					format.js
 				end
       else
-        @message = "Yikes! Something went wrong. Please try again."
+        @message = "Yikes! Please try to create that note again."
 
 				respond_to do |format|
 					format.js { render template: "notes/create_error.js.erb" }
 				end
       end
+    end
+  end
+
+	def destroy
+		@meeting = Meeting.find(params[:id])
+		@note_type = NoteType.find_by(name: params[:note_type])
+		@note_type_id = @note_type.id
+    @note = @meeting.retrieve_note(@note_type_id)
+
+    if @note.destroy
+      @message = "Note deleted successfully."
+
+			respond_to do |format|
+				format.js
+			end
+    else
+      flash.now[:danger] = "Yikes! Please try to delete that note again."
+
+			respond_to do |format|
+				format.js { render template: "notes/delete_error.js.erb" }
+			end
     end
   end
 

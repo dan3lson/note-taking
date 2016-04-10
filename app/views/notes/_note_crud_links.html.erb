@@ -1,0 +1,9 @@
+<% if note_exists %>
+	<small class="orange note-link">Update</small>
+	&nbsp;
+	<small class="red">
+		<%= link_to "Delete", note_path(note_type: type), method: :delete, remote: true %>
+	</small>
+<% else %>
+	<small class="green note-link">Add</small>
+<% end %>

@@ -1,0 +1,10 @@
+var type = "<%= @note_type.name.downcase %>";
+
+display_destroy_message(type);
+
+function display_destroy_message(type) {
+	var $section = $("#" + type + "-note-body");
+	var partial = "<%= j render(partial: 'notes/destroy', locals: { message: @message }) %>";
+	scroll_to($section.parent());
+	$section.prepend(partial);
+}
