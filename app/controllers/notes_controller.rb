@@ -3,35 +3,39 @@ class NotesController < ApplicationController
 		@meeting = Meeting.find(params[:meeting_id])
 		@note = Note.new
 		@type = params[:type]
-
-		respond_to do |format|
-      format.js
-    end
 	end
 
 	def create
-    @meeting = Meeting.find(params[:version_id])
-    @content = params[:note][:content]
+    @meeting = Meeting.find(params[:meeting_id])
     @note = Note.new(note_params)
     @note.meeting = @meeting
+		@note_content = params[:note][:content]
+		@params_note_type = params[:note][:id]
+		@note_type = NoteType.find_by(name: params[:note][:id])
 		@note_record = NoteRecord.new
-		@note_record.type = @type
+		@note_record.note_type = @note_type
 		@note_record.note = @note
 
-    if @content.blank?
-      flash[:danger] = "Please add content before clicking \'create\'."
+    if @params_note_type.blank? || @note_content.blank?
+			@error = true
+      @message = "Both fields can\'t be blank before clicking \'Create\'."
 
-      redirect_to new_meeting_note_path(@meeting)
+			respond_to do |format|
+				format.js { render template: "notes/create_error.js.erb" }
+			end
     else
-      if @note.save
-        msg = "Note successfully created!"
-        flash[:success] = msg
+      if @note.save && @note_record.save
+        @message = "Note successfully created!"
 
-        redirect_to @note
+				respond_to do |format|
+					format.js
+				end
       else
-        flash.now[:danger] = "Yikes! Something went wrong. Please try again."
+        @message = "Yikes! Something went wrong. Please try again."
 
-        render "versions/show"
+				respond_to do |format|
+					format.js { render template: "notes/create_error.js.erb" }
+				end
       end
     end
   end

@@ -33,7 +33,7 @@
 			<div class="pull-right" id="pre-note-btn-container">
 				<%= render "notes/note_btn_icons",
 					meeting: meeting,
-					note: meeting.has_pre_notes?,
+					note_exists: meeting.has_pre_notes?,
 					type: "Pre" %>
 			</div>
 			<p>
@@ -53,7 +53,7 @@
 			<div class="pull-right" id="current-note-btn-container">
 				<%= render "notes/note_btn_icons",
 					meeting: meeting,
-					note: meeting.has_current_notes?,
+					note_exists: meeting.has_current_notes?,
 					type: "Current" %>
 			</div>
 			<p>
@@ -73,7 +73,7 @@
 			<div class="pull-right" id="post-note-btn-container">
 				<%= render "notes/note_btn_icons",
 					meeting: meeting,
-					note: meeting.has_post_notes?,
+					note_exists: meeting.has_post_notes?,
 					type: "Post" %>
 			</div>
 			<p>

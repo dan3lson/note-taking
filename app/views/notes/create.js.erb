@@ -1,0 +1,25 @@
+var type = "<%= @note_type.name.downcase %>";
+display_new_note(type);
+reset_form();
+
+function display_new_note(type) {
+	var section = "#" + type + "-note-body";
+	var partial = "<%= j render(partial: 'notes/new_note', locals: { content: @content }) %>";
+	scroll_to($(section).parent());
+	$(section).hide().html(partial).fadeIn(400);
+	display_success_message(section);
+}
+
+function display_success_message(location) {
+	var partial = "<%= j render(partial: 'notes/success_message', locals: { message: @message }) %>";
+	$(location).prepend(partial);
+}
+
+function reset_form() {
+	$("#new_note").find("textarea").val("");
+	$("#note_id").val("");
+}
+
+function scroll_to(location) {
+	$("html, body").animate({ scrollTop: location.offset().top }, "slow");
+};

@@ -32,7 +32,7 @@ a:visited {
   color: inherit;;
 }
 a:hover {
-  color: $green;
+  color: dodgerblue;
 }
 .badge {
   background: dodgerblue;
@@ -47,6 +47,10 @@ body {
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 20px;
+
+  p:first-of-type {
+    font-weight: 500;
+  }
 }
 .card-left-padding {
   padding-left: 10px;
@@ -57,13 +61,8 @@ body {
 .clear {
   clear: both;
 }
-.fa-pencil-square-o {
+.orange {
   color: $orange;
-  cursor: pointer;
-}
-.fa-plus-circle {
-  color: $green;
-  cursor: pointer;
 }
 #filter-container {
   background: #F5F5F5;
@@ -77,6 +76,9 @@ body {
 .form-control[disabled] {
   background: $green;
 }
+.green {
+  color: $green;
+}
 #header-container {
   background: #212121;
   color: #FFF;
@@ -88,18 +90,25 @@ body {
 .inline-block {
   display: inline-block;
 }
+.note-link {
+  cursor: pointer;
+}
 .medium-gray {
   color: $medium-gray;
 }
 #meeting-show-page {
-  background: antiquewhite;
+  background: dodgerblue;
+  color: #FFF;
 }
 .meeting-time {
-  border-right: 1px solid #000;
+  border-right: 1px solid;
   padding-right: 10px;
 }
 .pointer {
   cursor: pointer;
+}
+.red {
+  color: red;
 }
 .row {
   margin-right: 0;
