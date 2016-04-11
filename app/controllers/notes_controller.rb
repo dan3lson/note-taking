@@ -2,7 +2,11 @@ class NotesController < ApplicationController
 	def new
 		@meeting = Meeting.find(params[:meeting_id])
 		@note = Note.new
-		@type = params[:type]
+		@note_type = params[:note_type]
+
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def create
@@ -40,10 +44,38 @@ class NotesController < ApplicationController
     end
   end
 
+	def edit
+		@meeting = Meeting.find(params[:meeting_id])
+    @note = Note.find(params[:id])
+		@note_type = params[:note_type]
+
+		respond_to do |format|
+			format.js
+		end
+	end
+
+	def update
+		@note = Note.find(params[:id])
+		@note_type = params[:note_type]
+
+		if @note.update(note_params)
+			@message = "Changes successfully made."
+
+			respond_to do |format|
+				format.js
+			end
+		else
+			@message = "Changes not successfully made."
+
+			respond_to do |format|
+				format.js { render template: "notes/update_error_message.js.erb" }
+			end
+		end
+	end
+
 	def destroy
-		@meeting = Meeting.find(params[:id])
 		@note_type = NoteType.find_by(name: params[:note_type])
-    @note = @meeting.retrieve_note(@note_type.id)
+    @note = Note.find(params[:id])
 		@note_record = NoteRecord.find_by(note: @note)
 
     if @note.destroy && @note_record.destroy

@@ -20,6 +20,11 @@ class Meeting < ActiveRecord::Base
 		notes.map { |n| n.note_types }.flatten.map { |nr| nr.name }
 	end
 
+	# not tested
+	# def available_note_types
+	# 	NoteType.pluck(:name) - self.note_types
+	# end
+
 	def has_pre_notes?
 		note_types.include?("Pre")
 	end

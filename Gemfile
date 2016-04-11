@@ -30,6 +30,8 @@ gem 'viewpoint'
 # gem 'therubyracer', platforms: :ruby
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Enables you to use fake people, places, or things (e.g. addresses)
+gem 'faker'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -48,8 +50,6 @@ group :development, :test do
   gem 'capybara'
   # Ensures a clean state during tests
   gem 'factory_girl'
-  # Enables you to use fake people, places, or things (e.g. addresses)
-  gem 'faker'
   # Saves and opens a page for when debugging tests
   gem 'launchy'
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console

@@ -1,9 +1,20 @@
 <% if note_exists %>
-	<small class="orange note-link">Update</small>
+	<% nt = NoteType.find_by(name: note_type) %>
+	<% note = meeting.retrieve_note(nt) %>
+
+	<small class="orange">
+		<%= link_to "Edit",
+				edit_meeting_note_path(meeting, note, note_type: note_type),
+				remote: true %>
+	</small>
 	&nbsp;
 	<small class="red">
-		<%= link_to "Delete", note_path(note_type: type), method: :delete, remote: true %>
+		<%= link_to "Delete", meeting_note_path(meeting, note, note_type: note_type),
+				method: :delete, remote: true %>
 	</small>
 <% else %>
-	<small class="green note-link">Add</small>
+	<small class="green">
+		<%= link_to "Add", new_meeting_note_path(meeting, note_type: note_type),
+				remote: true %>
+	</small>
 <% end %>

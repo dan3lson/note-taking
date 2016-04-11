@@ -3,6 +3,7 @@ var type = "<%= @note_type.name.downcase %>";
 reset_form();
 refresh_note_btn_container();
 display_new_note(type);
+empty_create_edit_note_container();
 
 function display_new_note(type) {
 	var section = "#" + type + "-note-body";
@@ -20,6 +21,16 @@ function display_success_message(location) {
 	auto_close_alert(".alert-success", 2000);
 }
 
+function empty_create_edit_note_container() {
+	var default_text = create_elem("small", "medium-gray");
+
+	default_text.append(
+		"Tap 'Add', 'Update', or 'Delete' above to create, " +
+		"edit, or remove a Pre, Current, or Post note for this meeting."
+	)
+	$(".create-edit-note-container").html(default_text)
+}
+
 function refresh_note_btn_container() {
 	var meeting_id = "<%= @meeting.id %>";
 	var $note_btn_container = $("#" + type + "-note-btn-container");
@@ -29,11 +40,10 @@ function refresh_note_btn_container() {
 		"data-remote": "true",
 		rel: "nofollow",
 		"data-method": "delete",
-		href: "/notes/" + meeting_id + "?note_type=" +
-					capitalize_first_letter(type),
+		href: "/notes/" + meeting_id + "?note_type=" + upcase_first_letter(type),
 		text: "Delete"
 	});
-	
+
 	$edit_link.append("Update");
 	$delete_link_container.append($delete_link);
 	$note_btn_container.html($edit_link);
@@ -63,7 +73,7 @@ function auto_close_alert(selector, delay) {
 	}, delay);
 }
 
-function capitalize_first_letter(string) {
+function upcase_first_letter(string) {
 	return string.replace(string[0], function(letter) {
     return letter.toUpperCase();
 	});

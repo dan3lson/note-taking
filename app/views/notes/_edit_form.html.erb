@@ -1,0 +1,13 @@
+<h4 class="note-form-header">Edit <%= note_type %> Note</h4>
+<br>
+<%= form_for [meeting, note], remote: true do |f| %>
+	<div class="form-group">
+		<%= hidden_field_tag :note_type, note_type %>
+		<%= f.label :content, class: "sr-only" %>
+		<%= f.text_area :content, class: "form-control", rows: 3,
+										placeholder: "Content" %>
+	</div>
+	<p>
+		<%= f.submit "Update", class: "form-control btn btn-warning" %>
+	</p>
+<% end %>

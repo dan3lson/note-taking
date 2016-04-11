@@ -1,0 +1,8 @@
+var partial = "<%= j render(partial: 'notes/edit_form', locals: { meeting: @meeting, note: @note, note_type: @note_type }) %>";
+
+$(".create-edit-note-container").hide().html(partial).fadeIn(400);
+scroll_to(".create-edit-note-container");
+
+function scroll_to(location) {
+	$("html, body").animate({ scrollTop: $(location).offset().top }, "slow");
+};
