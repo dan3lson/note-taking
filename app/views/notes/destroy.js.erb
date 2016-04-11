@@ -1,10 +1,42 @@
 var type = "<%= @note_type.name.downcase %>";
 
-display_destroy_message(type);
+refresh_note_btn_container();
+refresh_note_body();
+display_destroy_message();
 
-function display_destroy_message(type) {
-	var $section = $("#" + type + "-note-body");
+function display_destroy_message() {
+	var $note_body_container = $("#" + type + "-note-body");
 	var partial = "<%= j render(partial: 'notes/destroy', locals: { message: @message }) %>";
-	scroll_to($section.parent());
-	$section.prepend(partial);
+
+	scroll_to($note_body_container.parent());
+	$note_body_container.prepend(partial);
+	auto_close_alert(".alert-success", 2000);
+}
+
+function refresh_note_btn_container() {
+	var $note_btn_container = $("#" + type + "-note-btn-container");
+	var add_link = create_elem("small", "green note-link");
+
+	add_link.append("Add");
+	$note_btn_container.hide().html(add_link).fadeIn(400);
+}
+
+function refresh_note_body() {
+	var $note_body = $("#" + type + "-note-body");
+	var default_text = create_elem("small", "medium-gray");
+	default_text.append("Empty");
+	$note_body.hide().html(default_text).fadeIn(400);
+}
+
+function create_elem(elem, elem_class, elem_id) {
+	elem_class = elem_class ||  null;
+	elem_id = elem_id || null;
+
+	return $("<" + elem + ">", { class: elem_class, id: elem_id });
+}
+
+function auto_close_alert(selector, delay) {
+	setTimeout(function() {
+		$(selector).fadeOut()
+	}, delay);
 }

@@ -1,11 +1,13 @@
 var type = "<%= @note_type.name.downcase %>";
 
-display_new_note(type);
 reset_form();
+refresh_note_btn_container();
+display_new_note(type);
 
 function display_new_note(type) {
 	var section = "#" + type + "-note-body";
 	var partial = "<%= j render(partial: 'notes/new_note', locals: { content: @content }) %>";
+
 	scroll_to($(section).parent());
 	$(section).hide().html(partial).fadeIn(400);
 	display_success_message(section);
@@ -13,7 +15,30 @@ function display_new_note(type) {
 
 function display_success_message(location) {
 	var partial = "<%= j render(partial: 'notes/success_message', locals: { message: @message }) %>";
+
 	$(location).prepend(partial);
+	auto_close_alert(".alert-success", 2000);
+}
+
+function refresh_note_btn_container() {
+	var meeting_id = "<%= @meeting.id %>";
+	var $note_btn_container = $("#" + type + "-note-btn-container");
+	var $edit_link = create_elem("small", "orange note-link");
+	var $delete_link_container = create_elem("small", "red");
+	var $delete_link = $("<a>", {
+		"data-remote": "true",
+		rel: "nofollow",
+		"data-method": "delete",
+		href: "/notes/" + meeting_id + "?note_type=" +
+					capitalize_first_letter(type),
+		text: "Delete"
+	});
+	
+	$edit_link.append("Update");
+	$delete_link_container.append($delete_link);
+	$note_btn_container.html($edit_link);
+	$note_btn_container.append("&nbsp;&nbsp;");
+	$note_btn_container.append($delete_link_container);
 }
 
 function reset_form() {
@@ -24,3 +49,22 @@ function reset_form() {
 function scroll_to(location) {
 	$("html, body").animate({ scrollTop: location.offset().top }, "slow");
 };
+
+function create_elem(elem, elem_class, elem_id) {
+	elem_class = elem_class ||  null;
+	elem_id = elem_id || null;
+
+	return $("<" + elem + ">", { class: elem_class, id: elem_id });
+}
+
+function auto_close_alert(selector, delay) {
+	setTimeout(function() {
+		$(selector).fadeOut()
+	}, delay);
+}
+
+function capitalize_first_letter(string) {
+	return string.replace(string[0], function(letter) {
+    return letter.toUpperCase();
+	});
+}
