@@ -24,8 +24,12 @@
 			</p>
 			<br>
 			<p>
-				<% attendees(meeting).each_with_index do |name, i| %>
+				<% if attendees_exist?(meeting) %>
+					<% attendees(meeting).each_with_index do |name, i| %>
 					<%= name %><%= "," unless last_item?(i, num_attendees(meeting)) %>
+					<% end %>
+				<% else %>
+					<small class="medium-gray">None</small>
 				<% end %>
 			</p>
 		</div>

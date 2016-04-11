@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'calendar/index'
+  root 'meetings#index'
   get 'mail/index'
-
-  # root 'meetings#index'
-  root 'application#home'
   get 'authorize' => 'auth#gettoken'
+  get 'login' => 'application#home'
   resources :meetings do
     resources :notes
   end

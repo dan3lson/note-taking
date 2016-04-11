@@ -3,7 +3,14 @@
 		<div class="col-sm-6 col-sm-offset-3">
 			<h1><%= todays_date %></h1>
 			<p>
-				<%= time_of_day_greeting %>, Ben. It's currently <%= current_time %>.
+				<% if session[:azure_access_token] %>
+					Hi <%= session[:username] %>,
+					<%= time_of_day_greeting %>.
+					It's currently <%= current_time %>.
+				<% else %>
+					<%= link_to "Please log in", get_login_url %> to view your meetings
+					and manage your notes.
+				<% end %>
 			</p>
 		</div>
 	</div>
