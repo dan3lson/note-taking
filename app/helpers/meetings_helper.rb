@@ -1,12 +1,20 @@
 module MeetingsHelper
 	# not tested
 	def attendees(meeting)
-		meeting.attendees.split(",").sort_by { |letter| letter[0] }
+		if meeting.attendees.nil?
+			""
+		else
+			meeting.attendees.split(",").sort_by { |letter| letter[0] }
+		end
 	end
 
 	# not tested
 	def num_attendees(meeting)
 		attendees(meeting).length
+	end
+
+	def attendees_exist?(meeting)
+		!attendees(meeting).blank?
 	end
 
 	# not tested
