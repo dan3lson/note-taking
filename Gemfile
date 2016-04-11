@@ -32,6 +32,10 @@ gem 'viewpoint'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Enables you to use fake people, places, or things (e.g. addresses)
 gem 'faker'
+# Handles Ouath requests
+gem 'oauth2'
+# Simply send and receive REST requests
+gem 'faraday'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
