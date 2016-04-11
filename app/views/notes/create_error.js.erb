@@ -1,7 +1,7 @@
 display_error_message();
 
 function display_error_message() {
-	var new_note_container = $('#create-note-container');
+	var new_note_container = $('.create-edit-note-container');
 	var partial = "<%= j render(partial: 'notes/error_message', locals: { message: @message }) %>";
 	
 	new_note_container.hide();

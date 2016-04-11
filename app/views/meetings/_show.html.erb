@@ -34,7 +34,7 @@
 				<%= render "notes/note_crud_links",
 					meeting: meeting,
 					note_exists: meeting.has_pre_notes?,
-					type: "Pre" %>
+					note_type: "Pre" %>
 			</div>
 			<p>
 				<i class="fa fa-circle-o"></i>
@@ -54,7 +54,7 @@
 				<%= render "notes/note_crud_links",
 					meeting: meeting,
 					note_exists: meeting.has_current_notes?,
-					type: "Current" %>
+					note_type: "Current" %>
 			</div>
 			<p>
 				<i class="fa fa-dot-circle-o"></i>
@@ -74,7 +74,7 @@
 				<%= render "notes/note_crud_links",
 					meeting: meeting,
 					note_exists: meeting.has_post_notes?,
-					type: "Post" %>
+					note_type: "Post" %>
 			</div>
 			<p>
 				<i class="fa fa-circle"></i>
@@ -89,8 +89,11 @@
 				<% end %>
 			</p>
 		</div>
-		<div class="card" id="create-note-container">
-			<%= render "notes/form", meeting: meeting, note: @note %>
+		<div class="card create-edit-note-container">
+			<small class="medium-gray">
+				Tap "Add", "Edit", or "Delete" above to create, edit, or remove
+				a Pre, Current, or Post note for this meeting.
+			</small>
 		</div>
 	</div>
 </div>

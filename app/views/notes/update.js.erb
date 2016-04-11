@@ -1,0 +1,47 @@
+var type = "<%= @note_type.downcase %>";
+
+display_updated_note(type);
+empty_create_edit_note_container();
+
+function auto_close_alert(selector, delay) {
+	setTimeout(function() {
+		$(selector).fadeOut()
+	}, delay);
+}
+
+function create_elem(elem, elem_class, elem_id) {
+	elem_class = elem_class ||  null;
+	elem_id = elem_id || null;
+
+	return $("<" + elem + ">", { class: elem_class, id: elem_id });
+}
+
+function display_success_message(location) {
+	var partial = "<%= j render(partial: 'notes/success_message', locals: { message: @message }) %>";
+
+	$(location).prepend(partial);
+	auto_close_alert(".alert-success", 2000);
+}
+
+function display_updated_note(type) {
+	var section = "#" + type + "-note-body";
+	var partial = "<%= j render(partial: 'notes/update_note', locals: { content: @note.content }) %>";
+
+	scroll_to($(section).parent());
+	$(section).hide().html(partial).fadeIn(400);
+	display_success_message(section);
+}
+
+function empty_create_edit_note_container() {
+	var default_text = create_elem("small", "medium-gray");
+
+	default_text.append(
+		"Tap 'Add', 'Update', or 'Delete' above to create, " +
+		"edit, or remove a Pre, Current, or Post note for this meeting."
+	)
+	$(".create-edit-note-container").html(default_text)
+}
+
+function scroll_to(location) {
+	$("html, body").animate({ scrollTop: location.offset().top }, "slow");
+};
