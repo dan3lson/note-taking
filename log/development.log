@@ -681,3 +681,1047 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+
+
+Started GET "/" for ::1 at 2016-04-12 02:02:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#login as HTML
+  Rendered application/login.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 587ms (Views: 586.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-10f854e6b6d27388d2d809648a43797539675b5db03650cbcd6a8e7b0c36cf0d.css?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/custom.self-c272d878d9346d797ebf069958430cfc23477057bdb4e7646678b6724c845583.js?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/font-awesome.self-c1a7a80b6536c3397a1a212c9bd22298ae69260ee343d00b60d7f41fa54a59a8.css?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for ::1 at 2016-04-12 02:02:55 -0400
+
+
+Started GET "/authorize?code=M9329ecf3-f724-0bf8-59c9-876a2123cc06" for ::1 at 2016-04-12 02:03:01 -0400
+Processing by AuthController#gettoken as HTML
+  Parameters: {"code"=>"M9329ecf3-f724-0bf8-59c9-876a2123cc06"}
+Redirected to http://localhost:3000/meetings
+Completed 302 Found in 1083ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:03:02 -0400
+Processing by MeetingsController#index as HTML
+  [1m[35mMeeting Exists (2.8ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[35mMeeting Exists (0.3ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "meetings" WHERE (created_at >= '2016-04-12 04:00:00.000000')
+  Rendered layouts/_nav.html.erb (2.8ms)
+  [1m[36mMeeting Load (0.5ms)[0m  [1mSELECT "meetings".* FROM "meetings"[0m
+  [1m[35m (1.7ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  Rendered notes/_note_type_icons.html.erb (15.8ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  Rendered notes/_note_type_icons.html.erb (1.5ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3
+  Rendered notes/_note_type_icons.html.erb (1.3ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  Rendered notes/_note_type_icons.html.erb (1.2ms)
+  Rendered meetings/_index.html.erb (27.1ms)
+  Rendered meetings/index.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 1085ms (Views: 51.9ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/meetings/4" for ::1 at 2016-04-12 02:03:06 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"4"}
+  [1m[35mMeeting Load (0.5ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  Rendered notes/_note_type_icons.html.erb (1.9ms)
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  Rendered notes/_note_crud_links.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  Rendered notes/_note_crud_links.html.erb (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  Rendered notes/_note_crud_links.html.erb (0.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  Rendered meetings/_show.html.erb (12.4ms)
+  Rendered meetings/show.js.erb (13.8ms)
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/meetings/4/notes/new?note_type=Pre" for ::1 at 2016-04-12 02:03:07 -0400
+Processing by NotesController#new as JS
+  Parameters: {"note_type"=>"Pre", "meeting_id"=>"4"}
+  [1m[36mMeeting Load (0.7ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mNoteType Load (1.4ms)[0m  SELECT "note_types".* FROM "note_types"
+  Rendered notes/_new_form.html.erb (371.5ms)
+  Rendered notes/new.js.erb (373.1ms)
+Completed 200 OK in 381ms (Views: 372.0ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/meetings/4/notes" for ::1 at 2016-04-12 02:03:11 -0400
+Processing by NotesController#create as JS
+  Parameters: {"utf8"=>"✓", "note"=>{"id"=>"Pre", "content"=>"pre"}, "commit"=>"Create", "meeting_id"=>"4"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Unpermitted parameter: id
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1  [["name", "Pre"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "notes" ("content", "meeting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "pre"], ["meeting_id", 4], ["created_at", "2016-04-12 06:03:11.628044"], ["updated_at", "2016-04-12 06:03:11.628044"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "note_records" ("note_type_id", "note_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["note_type_id", 1], ["note_id", 8], ["created_at", "2016-04-12 06:03:11.632315"], ["updated_at", "2016-04-12 06:03:11.632315"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  Rendered notes/_new_note.html.erb (0.3ms)
+  Rendered notes/_success_message.html.erb (0.4ms)
+  Rendered notes/create.js.erb (3.5ms)
+Completed 200 OK in 136ms (Views: 6.5ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/meetings/4/notes/new?note_type=Post" for ::1 at 2016-04-12 02:03:13 -0400
+Processing by NotesController#new as JS
+  Parameters: {"note_type"=>"Post", "meeting_id"=>"4"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mNoteType Load (0.4ms)[0m  SELECT "note_types".* FROM "note_types"
+  Rendered notes/_new_form.html.erb (2.4ms)
+  Rendered notes/new.js.erb (3.2ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/meetings/4/notes" for ::1 at 2016-04-12 02:03:16 -0400
+Processing by NotesController#create as JS
+  Parameters: {"utf8"=>"✓", "note"=>{"id"=>"Post", "content"=>"boom"}, "commit"=>"Create", "meeting_id"=>"4"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+Unpermitted parameter: id
+  [1m[35mNoteType Load (0.4ms)[0m  SELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1  [["name", "Post"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "notes" ("content", "meeting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "boom"], ["meeting_id", 4], ["created_at", "2016-04-12 06:03:16.655696"], ["updated_at", "2016-04-12 06:03:16.655696"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "note_records" ("note_type_id", "note_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["note_type_id", 3], ["note_id", 9], ["created_at", "2016-04-12 06:03:16.659515"], ["updated_at", "2016-04-12 06:03:16.659515"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  Rendered notes/_new_note.html.erb (0.0ms)
+  Rendered notes/_success_message.html.erb (0.0ms)
+  Rendered notes/create.js.erb (1.5ms)
+Completed 200 OK in 15ms (Views: 3.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:03:18 -0400
+Processing by MeetingsController#index as JS
+  [1m[36mMeeting Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[35mMeeting Exists (0.4ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[35mMeeting Exists (0.3ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT "meetings".* FROM "meetings"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  Rendered notes/_note_type_icons.html.erb (1.5ms)
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  Rendered notes/_note_type_icons.html.erb (1.6ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNoteType Load (1.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mNoteType Load (1.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  Rendered notes/_note_type_icons.html.erb (36.7ms)
+  Rendered meetings/_index.html.erb (47.4ms)
+  Rendered meetings/index.js.erb (48.8ms)
+Completed 200 OK in 750ms (Views: 45.6ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/meetings/1" for ::1 at 2016-04-12 02:03:20 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  Rendered notes/_note_type_icons.html.erb (1.2ms)
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  Rendered notes/_note_crud_links.html.erb (0.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  Rendered notes/_note_crud_links.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  Rendered notes/_note_crud_links.html.erb (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  Rendered meetings/_show.html.erb (11.1ms)
+  Rendered meetings/show.js.erb (11.9ms)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/meetings/1/notes/new?note_type=Pre" for ::1 at 2016-04-12 02:03:21 -0400
+Processing by NotesController#new as JS
+  Parameters: {"note_type"=>"Pre", "meeting_id"=>"1"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types"[0m
+  Rendered notes/_new_form.html.erb (2.4ms)
+  Rendered notes/new.js.erb (3.2ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/meetings/1/notes" for ::1 at 2016-04-12 02:03:24 -0400
+Processing by NotesController#create as JS
+  Parameters: {"utf8"=>"✓", "note"=>{"id"=>"Pre", "content"=>"pre"}, "commit"=>"Create", "meeting_id"=>"1"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: id
+  [1m[36mNoteType Load (0.4ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Pre"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "notes" ("content", "meeting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "pre"], ["meeting_id", 1], ["created_at", "2016-04-12 06:03:24.534673"], ["updated_at", "2016-04-12 06:03:24.534673"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "note_records" ("note_type_id", "note_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["note_type_id", 1], ["note_id", 10], ["created_at", "2016-04-12 06:03:24.538174"], ["updated_at", "2016-04-12 06:03:24.538174"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered notes/_new_note.html.erb (0.1ms)
+  Rendered notes/_success_message.html.erb (0.1ms)
+  Rendered notes/create.js.erb (2.5ms)
+Completed 200 OK in 14ms (Views: 4.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/meetings/1/notes/new?note_type=Current" for ::1 at 2016-04-12 02:03:25 -0400
+Processing by NotesController#new as JS
+  Parameters: {"note_type"=>"Current", "meeting_id"=>"1"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types"[0m
+  Rendered notes/_new_form.html.erb (2.1ms)
+  Rendered notes/new.js.erb (3.0ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/meetings/1/notes" for ::1 at 2016-04-12 02:03:29 -0400
+Processing by NotesController#create as JS
+  Parameters: {"utf8"=>"✓", "note"=>{"id"=>"Current", "content"=>"current\r\n"}, "commit"=>"Create", "meeting_id"=>"1"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: id
+  [1m[36mNoteType Load (0.4ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Current"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "notes" ("content", "meeting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "current\r\n"], ["meeting_id", 1], ["created_at", "2016-04-12 06:03:29.135872"], ["updated_at", "2016-04-12 06:03:29.135872"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "note_records" ("note_type_id", "note_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["note_type_id", 2], ["note_id", 11], ["created_at", "2016-04-12 06:03:29.139310"], ["updated_at", "2016-04-12 06:03:29.139310"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered notes/_new_note.html.erb (0.1ms)
+  Rendered notes/_success_message.html.erb (0.1ms)
+  Rendered notes/create.js.erb (2.2ms)
+Completed 200 OK in 14ms (Views: 4.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/meetings/1/notes/new?note_type=Post" for ::1 at 2016-04-12 02:03:30 -0400
+Processing by NotesController#new as JS
+  Parameters: {"note_type"=>"Post", "meeting_id"=>"1"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types"[0m
+  Rendered notes/_new_form.html.erb (1.7ms)
+  Rendered notes/new.js.erb (2.4ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/meetings/1/notes" for ::1 at 2016-04-12 02:03:32 -0400
+Processing by NotesController#create as JS
+  Parameters: {"utf8"=>"✓", "note"=>{"id"=>"Post", "content"=>"post"}, "commit"=>"Create", "meeting_id"=>"1"}
+  [1m[35mMeeting Load (0.4ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: id
+  [1m[36mNoteType Load (0.5ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Post"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "notes" ("content", "meeting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "post"], ["meeting_id", 1], ["created_at", "2016-04-12 06:03:32.691449"], ["updated_at", "2016-04-12 06:03:32.691449"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "note_records" ("note_type_id", "note_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["note_type_id", 3], ["note_id", 12], ["created_at", "2016-04-12 06:03:32.694960"], ["updated_at", "2016-04-12 06:03:32.694960"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  Rendered notes/_new_note.html.erb (0.1ms)
+  Rendered notes/_success_message.html.erb (0.1ms)
+  Rendered notes/create.js.erb (2.7ms)
+Completed 200 OK in 17ms (Views: 4.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:03:37 -0400
+Processing by MeetingsController#index as JS
+  [1m[35mMeeting Exists (0.3ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[36mMeeting Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[35mMeeting Exists (0.2ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[36mMeeting Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[35mMeeting Load (0.4ms)[0m  SELECT "meetings".* FROM "meetings"
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mNoteType Load (0.5ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mNoteType Load (0.5ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mNoteType Load (0.5ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  Rendered notes/_note_type_icons.html.erb (11.4ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3[0m
+  Rendered notes/_note_type_icons.html.erb (0.9ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNoteType Load (0.5ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (75.9ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  Rendered notes/_note_type_icons.html.erb (84.0ms)
+  Rendered meetings/_index.html.erb (102.6ms)
+  Rendered meetings/index.js.erb (103.4ms)
+Completed 200 OK in 517ms (Views: 24.4ms | ActiveRecord: 81.8ms)
+
+
+Started GET "/meetings/2" for ::1 at 2016-04-12 02:03:38 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"2"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  Rendered notes/_note_type_icons.html.erb (2.6ms)
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  Rendered notes/_note_crud_links.html.erb (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  Rendered notes/_note_crud_links.html.erb (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  Rendered notes/_note_crud_links.html.erb (0.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  Rendered meetings/_show.html.erb (10.6ms)
+  Rendered meetings/show.js.erb (11.6ms)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/meetings/2/notes/new?note_type=Pre" for ::1 at 2016-04-12 02:03:40 -0400
+Processing by NotesController#new as JS
+  Parameters: {"note_type"=>"Pre", "meeting_id"=>"2"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mNoteType Load (0.4ms)[0m  SELECT "note_types".* FROM "note_types"
+  Rendered notes/_new_form.html.erb (2.1ms)
+  Rendered notes/new.js.erb (2.9ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/meetings/2/notes" for ::1 at 2016-04-12 02:03:43 -0400
+Processing by NotesController#create as JS
+  Parameters: {"utf8"=>"✓", "note"=>{"id"=>"Pre", "content"=>"boom"}, "commit"=>"Create", "meeting_id"=>"2"}
+  [1m[36mMeeting Load (0.3ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Unpermitted parameter: id
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1  [["name", "Pre"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "notes" ("content", "meeting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "boom"], ["meeting_id", 2], ["created_at", "2016-04-12 06:03:43.534557"], ["updated_at", "2016-04-12 06:03:43.534557"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "note_records" ("note_type_id", "note_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["note_type_id", 1], ["note_id", 13], ["created_at", "2016-04-12 06:03:43.540020"], ["updated_at", "2016-04-12 06:03:43.540020"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered notes/_new_note.html.erb (0.1ms)
+  Rendered notes/_success_message.html.erb (0.0ms)
+  Rendered notes/create.js.erb (1.8ms)
+Completed 200 OK in 16ms (Views: 3.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:03:46 -0400
+Processing by MeetingsController#index as JS
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[35mMeeting Exists (0.2ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[36mMeeting Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[35mMeeting Exists (0.2ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT "meetings".* FROM "meetings"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mNoteType Load (0.2ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  Rendered notes/_note_type_icons.html.erb (10.4ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 13]]
+  Rendered notes/_note_type_icons.html.erb (5.4ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3
+  Rendered notes/_note_type_icons.html.erb (1.4ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  Rendered notes/_note_type_icons.html.erb (21.6ms)
+  Rendered meetings/_index.html.erb (44.6ms)
+  Rendered meetings/index.js.erb (45.9ms)
+Completed 200 OK in 1081ms (Views: 42.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/meetings/1" for ::1 at 2016-04-12 02:03:49 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mMeeting Load (0.3ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mNoteType Load (0.2ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  Rendered notes/_note_type_icons.html.erb (10.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Pre"]]
+  [1m[35mNoteRecord Load (0.8ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) AND "note_records"."note_type_id" = 1 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered notes/_note_crud_links.html.erb (5.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mNoteRecord Load (0.5ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) LIMIT 1  [["note_type_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) LIMIT 1  [["note_type_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1  [["name", "Current"]]
+  [1m[36mNoteRecord Load (0.8ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) AND "note_records"."note_type_id" = 2 LIMIT 1[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered notes/_note_crud_links.html.erb (21.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mNoteRecord Load (0.7ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) LIMIT 1[0m  [["note_type_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) LIMIT 1[0m  [["note_type_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 12]]
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Post"]]
+  [1m[35mNoteRecord Load (0.7ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) AND "note_records"."note_type_id" = 3 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  Rendered notes/_note_crud_links.html.erb (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mNoteRecord Load (0.6ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) LIMIT 1  [["note_type_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 1) LIMIT 1  [["note_type_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  Rendered meetings/_show.html.erb (77.8ms)
+  Rendered meetings/show.js.erb (78.8ms)
+Completed 200 OK in 81ms (Views: 71.9ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/meetings/1/notes/10/edit?note_type=Pre" for ::1 at 2016-04-12 02:03:52 -0400
+Processing by NotesController#edit as JS
+  Parameters: {"note_type"=>"Pre", "meeting_id"=>"1", "id"=>"10"}
+  [1m[35mMeeting Load (0.2ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered notes/_edit_form.html.erb (1.8ms)
+  Rendered notes/edit.js.erb (3.3ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/meetings/1/notes/10" for ::1 at 2016-04-12 02:03:55 -0400
+Processing by NotesController#update as JS
+  Parameters: {"utf8"=>"✓", "note_type"=>"Pre", "note"=>{"content"=>"pre x2"}, "commit"=>"Update", "meeting_id"=>"1", "id"=>"10"}
+  [1m[35mNote Load (0.3ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mMeeting Load (1.7ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "notes" SET "content" = $1, "updated_at" = $2 WHERE "notes"."id" = $3[0m  [["content", "pre x2"], ["updated_at", "2016-04-12 06:03:55.210792"], ["id", 10]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  Rendered notes/_success_message.html.erb (0.1ms)
+  Rendered notes/_update_note.html.erb (0.3ms)
+  Rendered notes/update.js.erb (2.8ms)
+Completed 200 OK in 16ms (Views: 4.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/meetings/1/notes/10/edit?note_type=Pre" for ::1 at 2016-04-12 02:03:56 -0400
+Processing by NotesController#edit as JS
+  Parameters: {"note_type"=>"Pre", "meeting_id"=>"1", "id"=>"10"}
+  [1m[36mMeeting Load (0.3ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNote Load (0.3ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered notes/_edit_form.html.erb (1.2ms)
+  Rendered notes/edit.js.erb (1.9ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/meetings/1/notes/10" for ::1 at 2016-04-12 02:03:59 -0400
+Processing by NotesController#update as JS
+  Parameters: {"utf8"=>"✓", "note_type"=>"Pre", "note"=>{"content"=>"pre x3"}, "commit"=>"Update", "meeting_id"=>"1", "id"=>"10"}
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mMeeting Load (0.2ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "notes" SET "content" = $1, "updated_at" = $2 WHERE "notes"."id" = $3  [["content", "pre x3"], ["updated_at", "2016-04-12 06:03:59.035380"], ["id", 10]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered notes/_success_message.html.erb (0.0ms)
+  Rendered notes/_update_note.html.erb (0.0ms)
+  Rendered notes/update.js.erb (1.3ms)
+Completed 200 OK in 10ms (Views: 3.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/meetings/1/notes/10/edit?note_type=Pre" for ::1 at 2016-04-12 02:04:00 -0400
+Processing by NotesController#edit as JS
+  Parameters: {"note_type"=>"Pre", "meeting_id"=>"1", "id"=>"10"}
+  [1m[35mMeeting Load (0.3ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered notes/_edit_form.html.erb (0.8ms)
+  Rendered notes/edit.js.erb (1.6ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/meetings/1/notes/10" for ::1 at 2016-04-12 02:04:03 -0400
+Processing by NotesController#update as JS
+  Parameters: {"utf8"=>"✓", "note_type"=>"Pre", "note"=>{"content"=>"pre x4"}, "commit"=>"Update", "meeting_id"=>"1", "id"=>"10"}
+  [1m[35mNote Load (0.2ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mMeeting Load (0.2ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "notes" SET "content" = $1, "updated_at" = $2 WHERE "notes"."id" = $3[0m  [["content", "pre x4"], ["updated_at", "2016-04-12 06:04:03.224390"], ["id", 10]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  Rendered notes/_success_message.html.erb (0.1ms)
+  Rendered notes/_update_note.html.erb (0.1ms)
+  Rendered notes/update.js.erb (3.1ms)
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:04:17 -0400
+Processing by MeetingsController#index as JS
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[35mMeeting Exists (0.3ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[35mMeeting Exists (0.3ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[36mMeeting Load (0.6ms)[0m  [1mSELECT "meetings".* FROM "meetings"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mNoteType Load (0.2ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 10]]
+  Rendered notes/_note_type_icons.html.erb (10.4ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 13]]
+  Rendered notes/_note_type_icons.html.erb (5.8ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mNoteType Load (0.2ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  Rendered notes/_note_type_icons.html.erb (18.0ms)
+  Rendered meetings/_index.html.erb (41.3ms)
+  Rendered meetings/index.js.erb (42.3ms)
+Completed 200 OK in 605ms (Views: 39.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/meetings/4" for ::1 at 2016-04-12 02:04:19 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mMeeting Load (0.3ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  Rendered notes/_note_type_icons.html.erb (7.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Pre"]]
+  [1m[35mNoteRecord Load (0.7ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) AND "note_records"."note_type_id" = 1 LIMIT 1
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered notes/_note_crud_links.html.erb (3.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mNoteRecord Load (0.6ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1[0m  [["note_type_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  Rendered notes/_note_crud_links.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1  [["name", "Post"]]
+  [1m[36mNoteRecord Load (0.7ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) AND "note_records"."note_type_id" = 3 LIMIT 1[0m
+  [1m[35mNote Load (0.5ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered notes/_note_crud_links.html.erb (20.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 9]]
+  [1m[35mNoteRecord Load (0.6ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1  [["note_type_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1[0m  [["note_type_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered meetings/_show.html.erb (58.2ms)
+  Rendered meetings/show.js.erb (59.5ms)
+Completed 200 OK in 64ms (Views: 56.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:10:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MeetingsController#index as HTML
+  [1m[35mMeeting Exists (0.8ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[35mMeeting Exists (0.4ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "meetings" WHERE (created_at >= '2016-04-12 04:00:00.000000')
+  Rendered layouts/_nav.html.erb (2.6ms)
+  [1m[36mMeeting Load (0.6ms)[0m  [1mSELECT "meetings".* FROM "meetings"[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  Rendered notes/_note_type_icons.html.erb (10.2ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  Rendered notes/_note_type_icons.html.erb (1.2ms)
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3
+  Rendered notes/_note_type_icons.html.erb (1.6ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNote Load (0.6ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNoteType Load (1.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mNoteType Load (0.5ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  Rendered notes/_note_type_icons.html.erb (86.2ms)
+  Rendered meetings/_index.html.erb (106.8ms)
+  Rendered meetings/index.html.erb within layouts/application (113.3ms)
+Completed 200 OK in 1839ms (Views: 534.9ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/assets/custom.self-10f854e6b6d27388d2d809648a43797539675b5db03650cbcd6a8e7b0c36cf0d.css?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/font-awesome.self-c1a7a80b6536c3397a1a212c9bd22298ae69260ee343d00b60d7f41fa54a59a8.css?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/custom.self-c272d878d9346d797ebf069958430cfc23477057bdb4e7646678b6724c845583.js?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-12 02:10:02 -0400
+
+
+Started GET "/meetings/4" for ::1 at 2016-04-12 02:10:09 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNoteType Load (0.5ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mNoteType Load (0.5ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  Rendered notes/_note_type_icons.html.erb (9.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  Rendered notes/_note_crud_links.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mNoteRecord Load (0.6ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1[0m  [["note_type_id", 1]]
+  Rendered meetings/_show.html.erb (25.4ms)
+  Rendered meetings/show.js.erb (26.5ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.9ms)
+
+ActionView::Template::Error (undefined method `note' for nil:NilClass):
+    56: 				<br>
+    57: 				<small class="medium-gray">
+    58: 					Last updated:
+    59: 					<%= time_ago_in_words(meeting.retrieve_note(1).updated_at) %> ago
+    60: 				</small>
+    61: 			<% end %>
+    62: 		</div>
+  app/models/meeting.rb:47:in `retrieve_note'
+  app/views/meetings/_show.html.erb:59:in `_app_views_meetings__show_html_erb__3314726085282630634_70115265437820'
+  app/views/meetings/show.js.erb:3:in `_app_views_meetings_show_js_erb___3241580870644578043_70115265428060'
+  app/controllers/meetings_controller.rb:64:in `show'
+
+
+  Rendered /Users/danelsonrosa/.gem/ruby/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/danelsonrosa/.gem/ruby/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
+  Rendered /Users/danelsonrosa/.gem/ruby/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (13.0ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:11:04 -0400
+Processing by MeetingsController#index as HTML
+  [1m[35mMeeting Exists (0.4ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[36mMeeting Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[35mMeeting Exists (0.2ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[36mMeeting Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "meetings" WHERE (created_at >= '2016-04-12 04:00:00.000000')
+  Rendered layouts/_nav.html.erb (1.8ms)
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT "meetings".* FROM "meetings"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1
+  Rendered notes/_note_type_icons.html.erb (1.2ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2[0m
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNote Load (0.5ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNoteType Load (0.5ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mNoteType Load (0.5ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  Rendered notes/_note_type_icons.html.erb (9.5ms)
+  Rendered meetings/_index.html.erb (17.7ms)
+  Rendered meetings/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 480ms (Views: 37.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/custom.self-10f854e6b6d27388d2d809648a43797539675b5db03650cbcd6a8e7b0c36cf0d.css?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/font-awesome.self-c1a7a80b6536c3397a1a212c9bd22298ae69260ee343d00b60d7f41fa54a59a8.css?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/custom.self-c272d878d9346d797ebf069958430cfc23477057bdb4e7646678b6724c845583.js?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-12 02:11:05 -0400
+
+
+Started GET "/meetings/4" for ::1 at 2016-04-12 02:11:07 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mMeeting Load (0.4ms)[0m  [1mSELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  Rendered notes/_note_type_icons.html.erb (8.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  Rendered notes/_note_crud_links.html.erb (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mNoteRecord Load (0.7ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1  [["note_type_id", 1]]
+  Rendered meetings/_show.html.erb (145778.1ms)
+  Rendered meetings/show.js.erb (145778.7ms)
+Completed 500 Internal Server Error in 145781ms (ActiveRecord: 2.6ms)
+
+ActionView::Template::Error (undefined method `note' for nil:NilClass):
+    57: 				<small class="medium-gray">
+    58: 					Last updated:
+    59: 					<%= time_ago_in_words(meeting.retrieve_note(1).updated_at) %> ago
+    60: 				</small>
+    61: 			<% end %>
+    62: 		</div>
+    63: 		<div class="card">
+  app/models/meeting.rb:47:in `retrieve_note'
+  app/views/meetings/_show.html.erb:60:in `_app_views_meetings__show_html_erb__3314726085282630634_70115296382300'
+  app/views/meetings/show.js.erb:3:in `_app_views_meetings_show_js_erb___3241580870644578043_70115265428060'
+  app/controllers/meetings_controller.rb:64:in `show'
+
+
+  Rendered /Users/danelsonrosa/.gem/ruby/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/danelsonrosa/.gem/ruby/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.1ms)
+  Rendered /Users/danelsonrosa/.gem/ruby/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (9.2ms)
+
+
+Started GET "/meetings" for ::1 at 2016-04-12 02:13:35 -0400
+Processing by MeetingsController#index as HTML
+  [1m[36mMeeting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0uAAAA"]]
+Meeting  Eat already exists.
+  [1m[35mMeeting Exists (0.2ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0sAAAA"]]
+Meeting  Sleep already exists.
+  [1m[36mMeeting Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1[0m  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0tAAAA"]]
+Meeting  Review App Completion already exists.
+  [1m[35mMeeting Exists (0.2ms)[0m  SELECT  1 AS one FROM "meetings" WHERE "meetings"."api_id" = $1 LIMIT 1  [["api_id", "AQMkADAwATM3ZmYAZS1lNWI0LTRlYjQtMDACLTAwCgBGAAADvW8-u9r_mk6c3c6ko3SVkgcAsz-BpZwzDUujh5jvC0F9zgAAAgENAAAAsz-BpZwzDUujh5jvC0F9zgAAAg0vAAAA"]]
+Meeting  Meet with Nayeri already exists.
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "meetings" WHERE (created_at >= '2016-04-12 04:00:00.000000')[0m
+  Rendered layouts/_nav.html.erb (1.9ms)
+  [1m[35mMeeting Load (0.5ms)[0m  SELECT "meetings".* FROM "meetings"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 1[0m
+  Rendered notes/_note_type_icons.html.erb (1.2ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 2
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 3[0m
+  Rendered notes/_note_type_icons.html.erb (1.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mNoteType Load (0.2ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  Rendered notes/_note_type_icons.html.erb (7.9ms)
+  Rendered meetings/_index.html.erb (16.3ms)
+  Rendered meetings/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 635ms (Views: 116.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/custom.self-10f854e6b6d27388d2d809648a43797539675b5db03650cbcd6a8e7b0c36cf0d.css?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/font-awesome.self-c1a7a80b6536c3397a1a212c9bd22298ae69260ee343d00b60d7f41fa54a59a8.css?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/custom.self-c272d878d9346d797ebf069958430cfc23477057bdb4e7646678b6724c845583.js?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-04-12 02:13:36 -0400
+
+
+Started GET "/meetings/4" for ::1 at 2016-04-12 02:13:38 -0400
+Processing by MeetingsController#show as JS
+  Parameters: {"id"=>"4"}
+  [1m[35mMeeting Load (0.4ms)[0m  SELECT  "meetings".* FROM "meetings" WHERE "meetings"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mNoteType Load (0.3ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  Rendered notes/_note_type_icons.html.erb (9.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  Rendered notes/_note_crud_links.html.erb (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mNoteType Load (0.3ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Current"]]
+  [1m[35mNoteRecord Load (0.7ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) AND "note_records"."note_type_id" = 2 LIMIT 1
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered notes/_note_crud_links.html.erb (15.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mNoteRecord Load (1.1ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1[0m  [["note_type_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1  [["note_type_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mNoteType Load (0.4ms)[0m  [1mSELECT  "note_types".* FROM "note_types" WHERE "note_types"."name" = $1 LIMIT 1[0m  [["name", "Post"]]
+  [1m[35mNoteRecord Load (0.7ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) AND "note_records"."note_type_id" = 3 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered notes/_note_crud_links.html.erb (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 5]]
+  [1m[36mNoteRecord Load (0.6ms)[0m  [1mSELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1[0m  [["note_type_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."meeting_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1  [["note_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "note_types".* FROM "note_types" INNER JOIN "note_records" ON "note_types"."id" = "note_records"."note_type_id" WHERE "note_records"."note_id" = $1[0m  [["note_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "note_records".* FROM "note_records" WHERE "note_records"."note_type_id" = $1 AND "note_records"."note_id" IN (SELECT "notes"."id" FROM "notes" WHERE "notes"."meeting_id" = 4) LIMIT 1  [["note_type_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered meetings/_show.html.erb (384.1ms)
+  Rendered meetings/show.js.erb (385.1ms)
+Completed 200 OK in 389ms (Views: 379.5ms | ActiveRecord: 8.0ms)
