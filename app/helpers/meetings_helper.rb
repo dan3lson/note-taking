@@ -29,7 +29,7 @@ module MeetingsHelper
 
 	# not tested
 	def meetings_for_today
-		Meeting.where("created_at >= ?", Time.zone.now.beginning_of_day)
+		Meeting.where("start_date >= ?", Time.zone.now.beginning_of_day)
 	end
 
 	# not tested
