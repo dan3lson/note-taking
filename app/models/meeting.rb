@@ -1,6 +1,7 @@
 class Meeting < ActiveRecord::Base
 	has_many :notes
 
+	validates :api_id, presence: true
 	validates :organizer, presence: true
 	validates :subject, presence: true
 	validates :start_date, presence: true
@@ -77,14 +78,7 @@ class Meeting < ActiveRecord::Base
 	end
 
 	# not tested
-	def self.already_exists?(organizer, subject, start_date, end_date, body)
-		exists?(
-			organizer: organizer,
-			subject: subject,
-			subject: subject,
-			start_date: start_date,
-			end_date: end_date,
-			body: body
-		)
+	def self.already_exists?(api_id)
+		exists?(api_id: api_id)
 	end
 end

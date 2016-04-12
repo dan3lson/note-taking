@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'mail/index'
   get 'authorize' => 'auth#gettoken'
   get 'login' => 'application#home'
+  resources :notes, only: [:destroy]
   resources :meetings do
     resources :notes
   end

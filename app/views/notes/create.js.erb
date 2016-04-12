@@ -33,20 +33,27 @@ function empty_create_edit_note_container() {
 
 function refresh_note_btn_container() {
 	var meeting_id = "<%= @meeting.id %>";
+	var note_id = "<%= @note.id %>"
 	var $note_btn_container = $("#" + type + "-note-btn-container");
-	var $edit_link = create_elem("small", "orange note-link");
+	var $edit_link_container = create_elem("small", "orange");
+	var $edit_link = $("<a>", {
+		"data-remote": "true",
+		href: "/meetings/" + meeting_id + "/notes/" + note_id + "/edit?note_type=" +
+					upcase_first_letter(type),
+		text: "Edit"
+	});
 	var $delete_link_container = create_elem("small", "red");
 	var $delete_link = $("<a>", {
 		"data-remote": "true",
 		rel: "nofollow",
 		"data-method": "delete",
-		href: "/notes/" + meeting_id + "?note_type=" + upcase_first_letter(type),
+		href: "/notes/" + note_id + "?note_type=" + upcase_first_letter(type),
 		text: "Delete"
 	});
 
-	$edit_link.append("Update");
+	$edit_link_container.append($edit_link);
 	$delete_link_container.append($delete_link);
-	$note_btn_container.html($edit_link);
+	$note_btn_container.html($edit_link_container);
 	$note_btn_container.append("&nbsp;&nbsp;");
 	$note_btn_container.append($delete_link_container);
 }

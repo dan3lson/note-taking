@@ -10,6 +10,7 @@ RSpec.describe Meeting, type: :model do
   end
 
   describe "validations" do
+    it { should validate_presence_of(:api_id) }
     it { should validate_presence_of(:organizer) }
 		it { should validate_presence_of(:subject) }
 		it { should validate_presence_of(:start_date) }

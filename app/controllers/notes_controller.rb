@@ -75,8 +75,9 @@ class NotesController < ApplicationController
 
 	def destroy
 		@note_type = NoteType.find_by(name: params[:note_type])
-    @note = Note.find(params[:id])
+		@note = Note.find(params[:id])
 		@note_record = NoteRecord.find_by(note: @note)
+		@meeting = @note.meeting
 
     if @note.destroy && @note_record.destroy
       @message = "Note deleted successfully."
