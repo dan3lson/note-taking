@@ -29,11 +29,11 @@ class MeetingsController < ApplicationController
 			@events.each do |e|
 				m = Meeting.new
 				m.api_id = e["Id"]
-				m.organizer = e["Organizer"]
+				m.organizer = "#{e["Organizer"]["EmailAddress"]["Name"]}, #{e["Organizer"]["EmailAddress"]["Address"]}"
 				m.subject = e["Subject"]
-				m.start_date = e["Start"]["DateTime"]
-				m.end_date = e["End"]["DateTime"]
-				m.body = e["Body"]["Content"]
+				m.start_date = e["Start"]["DateTime"].to_datetime
+				m.end_date = e["End"]["DateTime"].to_datetime
+				m.body = ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
 				m.attendees = e["Attendees"] if e["Attendees"].any?
 
 				if Meeting.already_exists?(m.api_id)
