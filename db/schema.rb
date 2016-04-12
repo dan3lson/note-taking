@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411213938) do
+ActiveRecord::Schema.define(version: 20160412053112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20160411213938) do
     t.string   "api_id",     null: false
   end
 
+  add_index "meetings", ["api_id"], name: "index_meetings_on_api_id", using: :btree
+  add_index "meetings", ["end_date"], name: "index_meetings_on_end_date", using: :btree
+  add_index "meetings", ["start_date"], name: "index_meetings_on_start_date", using: :btree
+
   create_table "note_records", force: :cascade do |t|
     t.integer  "note_id",      null: false
     t.integer  "note_type_id", null: false
@@ -36,11 +40,17 @@ ActiveRecord::Schema.define(version: 20160411213938) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "note_records", ["note_id", "note_type_id"], name: "index_note_records_on_note_id_and_note_type_id", using: :btree
+  add_index "note_records", ["note_id"], name: "index_note_records_on_note_id", using: :btree
+  add_index "note_records", ["note_type_id"], name: "index_note_records_on_note_type_id", using: :btree
+
   create_table "note_types", force: :cascade do |t|
     t.text     "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "note_types", ["name"], name: "index_note_types_on_name", using: :btree
 
   create_table "notes", force: :cascade do |t|
     t.text     "content",    null: false
@@ -48,5 +58,7 @@ ActiveRecord::Schema.define(version: 20160411213938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "notes", ["meeting_id"], name: "index_notes_on_meeting_id", using: :btree
 
 end
