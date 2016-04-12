@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'meetings#index'
+  root 'application#login'
   get 'mail/index'
   get 'authorize' => 'auth#gettoken'
-  get 'login' => 'application#home'
+  get 'login' => 'application#login'
   resources :notes, only: [:destroy]
   resources :meetings do
     resources :notes

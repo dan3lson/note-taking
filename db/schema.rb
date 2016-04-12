@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160411213938) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "api_id",     null: false
+    t.string   "api_id",     null: false
   end
 
   create_table "note_records", force: :cascade do |t|

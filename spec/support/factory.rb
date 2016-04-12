@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :meeting do
-    api_id 1
+    api_id "abc"
     organizer "John Doe"
     subject "Discuss App Requirements"
     start_date DateTime.now

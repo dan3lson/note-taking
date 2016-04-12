@@ -9,7 +9,8 @@
 	</small>
 	&nbsp;
 	<small class="red">
-		<%= link_to "Delete", meeting_note_path(meeting, note, note_type: note_type),
+		<%= link_to "Delete", meeting_note_path(meeting, note,
+																						note_type: note_type),
 				method: :delete, remote: true %>
 	</small>
 <% else %>

@@ -1,5 +1,5 @@
 class AddColumnApiIdMeetings < ActiveRecord::Migration
   def change
-    add_column :meetings, :api_id, :integer, null: false
+    add_column :meetings, :api_id, :string, null: false
   end
 end

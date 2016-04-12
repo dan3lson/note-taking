@@ -22,7 +22,6 @@ function display_destroy_message() {
 	var $note_body_container = $("#" + type + "-note-body");
 	var partial = "<%= j render(partial: 'notes/destroy', locals: { message: @message }) %>";
 
-	scroll_to($note_body_container.parent());
 	$note_body_container.prepend(partial);
 	auto_close_alert(".alert-success", 2000);
 }

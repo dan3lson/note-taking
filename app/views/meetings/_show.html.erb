@@ -52,6 +52,13 @@
 					<small class="medium-gray">Empty</small>
 				<% end %>
 			</p>
+			<% if meeting.has_current_notes? %>
+				<br>
+				<small class="medium-gray">
+					Last updated:
+					<%= time_ago_in_words(meeting.retrieve_note(1).updated_at) %> ago
+				</small>
+			<% end %>
 		</div>
 		<div class="card">
 			<div class="pull-right" id="current-note-btn-container">
@@ -72,6 +79,13 @@
 					<small class="medium-gray">Empty</small>
 				<% end %>
 			</p>
+			<% if meeting.has_current_notes? %>
+				<br>
+				<small class="medium-gray">
+					Last updated:
+					<%= time_ago_in_words(meeting.retrieve_note(2).updated_at) %> ago
+				</small>
+			<% end %>
 		</div>
 		<div class="card">
 			<div class="pull-right" id="post-note-btn-container">
@@ -92,6 +106,13 @@
 					<small class="medium-gray">Empty</small>
 				<% end %>
 			</p>
+			<% if meeting.has_post_notes? %>
+				<br>
+				<small class="medium-gray">
+					Last updated:
+					<%= time_ago_in_words(meeting.retrieve_note(3).updated_at) %> ago
+				</small>
+			<% end %>
 		</div>
 		<div class="card create-edit-note-container">
 			<small class="medium-gray">
