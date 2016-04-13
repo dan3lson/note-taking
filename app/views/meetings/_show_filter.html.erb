@@ -1,0 +1,31 @@
+<% meetings.each_with_index do |meeting, index| %>
+	<div class="filtered-meeting" data-filter-meeting-index="<%= index %>">
+		<%= render "meetings/show_header", meeting: meeting %>
+
+		<% if note_type == "pre" %>
+			<%= render "meetings/show_pre", meeting: meeting %>
+		<% elsif note_type == "current" %>
+			<%= render "meetings/show_current", meeting: meeting %>
+		<% elsif note_type == "post" %>
+			<%= render "meetings/show_post", meeting: meeting %>
+		<% else %>
+			Yikes
+		<% end %>
+	</div>
+<% end %>
+
+<%= render "meetings/show_create_edit_note_container" %>
+
+<footer class="navbar navbar-default navbar-fixed-bottom navbar-footer"
+				role="navigation">
+	<div class="row center">
+		<div class="col-xs-6">
+			<i class="fa fa-arrow-circle-left"></i>
+			<span>Prev</span>
+		</div>
+		<div class="col-xs-6">
+			<i class="fa fa-arrow-circle-right"></i>
+			<span>Next</span>
+		</div>
+	</div>
+ </footer>

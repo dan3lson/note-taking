@@ -40,7 +40,7 @@ class Meeting < ActiveRecord::Base
 
 	def retrieve_note(note_type_id)
 		nr = NoteRecord.find_by(note: self.notes, note_type_id: note_type_id)
-		nr.note ? nr : "note doesn\'t exist"
+		nr ? nr.note : "note doesn\'t exist"
 	end
 
 	# not tested
@@ -78,11 +78,14 @@ class Meeting < ActiveRecord::Base
 		exists?(api_id: api_id)
 	end
 
+	# not tested
 	def self.today
 		where("start_date >= ?", Time.zone.now.beginning_of_day)
 	end
 
-	def self.today_filtered(note_type)
-		binding.pry
+	# not tested
+	def self.just_text(string)
+		s = string.gsub("\r", "").gsub("\n", "")
+		s.blank? ? nil : s
 	end
 end

@@ -1,12 +1,4 @@
 class MeetingsController < ApplicationController
-	# def index
-	# 	@meetings = Meeting.all
-	#
-	# 	respond_to do |format|
-	# 		format.html
-	# 		format.js
-	# 	end
-	# end
 	def index
 		token = session[:azure_access_token]
 		email = session[:user_email]
@@ -33,7 +25,9 @@ class MeetingsController < ApplicationController
 				m.subject = e["Subject"]
 				m.start_date = e["Start"]["DateTime"].to_datetime
 				m.end_date = e["End"]["DateTime"].to_datetime
-				m.body = ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
+				m.body = Meeting.just_text(
+					ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
+				)
 				m.attendees = e["Attendees"] if e["Attendees"].any?
 
 				if Meeting.already_exists?(m.api_id)
@@ -67,8 +61,8 @@ class MeetingsController < ApplicationController
 	end
 
 	def show_filter
+		@meetings = Meeting.today
 		@note_type = params[:note_type]
-		@filtered_meetings = Meeting.today_filtered(@note_type)
 
 		respond_to do |format|
 			format.js

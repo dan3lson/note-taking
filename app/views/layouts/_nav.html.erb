@@ -8,8 +8,12 @@
 			</div>
 			<p>
 				<% if session[:azure_access_token] %>
-					Hi <%= session[:username] %>,
-					you have <%= pluralize(num_meetings_for_today, "meeting") %> today.
+					Hello <%= session[:username] %>,
+					you have
+					<span id="num-meetings-for-today">
+						<%= pluralize(num_meetings_for_today, "meeting") %>
+					</span>
+					today.
 				<% else %>
 					<%= link_to "Please log in", get_login_url %> to view your meetings
 					and manage your notes.
@@ -21,20 +25,28 @@
 
 <section id="filter-container">
 	<div class="row center">
-		<div class="col-xs-3 medium-gray">
-			<i class="fa fa-circle-o fa-2x"></i>
-			<br>
-			Pre
+		<div class="col-xs-3">
+			<%= link_to meeting_show_filter_path(note_type: "pre"), remote: true do %>
+				<i class="fa fa-circle-o fa-2x"></i>
+				<br>
+				Pre
+			<% end %>
 		</div>
-		<div class="col-xs-3 medium-gray">
-			<i class="fa fa-dot-circle-o fa-2x"></i>
-			<br>
-			Current
+		<div class="col-xs-3">
+			<%= link_to meeting_show_filter_path(note_type: "current"),
+					remote: true do %>
+				<i class="fa fa-dot-circle-o fa-2x"></i>
+				<br>
+				Current
+			<% end %>
 		</div>
-		<div class="col-xs-3 medium-gray">
-			<i class="fa fa-circle fa-2x"></i>
-			<br>
-			Post
+		<div class="col-xs-3">
+			<%= link_to meeting_show_filter_path(note_type: "post"),
+					remote: true do %>
+				<i class="fa fa-circle fa-2x"></i>
+				<br>
+				Post
+			<% end %>
 		</div>
 		<div class="col-xs-3 medium-gray">
 			<i class="fa fa-sticky-note-o fa-2x"></i>

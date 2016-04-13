@@ -1,4 +1,6 @@
 $("#meeting-show").hide();
+$("#meeting-show-filter").hide();
+$("#num-meetings-for-today").html("<%= pluralize(@meetings.count, 'meeting') %>");
 $('#meetings-index').hide().html(
 	"<%= j render(partial: 'meetings/index', locals: { meetings: @meetings }) %>"
 ).fadeIn(400);
