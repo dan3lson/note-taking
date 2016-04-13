@@ -47,7 +47,7 @@ class MeetingsController < ApplicationController
 				end
 			end
 
-			@meetings = Meeting.all
+			@meetings = Meeting.today
 
 			respond_to do |format|
 				format.html
@@ -64,5 +64,14 @@ class MeetingsController < ApplicationController
 		respond_to do |format|
       format.js
     end
+	end
+
+	def show_filter
+		@note_type = params[:note_type]
+		@filtered_meetings = Meeting.today_filtered(@note_type)
+
+		respond_to do |format|
+			format.js
+		end
 	end
 end

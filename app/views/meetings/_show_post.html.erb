@@ -1,0 +1,27 @@
+<div class="card">
+	<div class="pull-right" id="post-note-btn-container">
+		<%= render "notes/note_crud_links",
+			meeting: meeting,
+			note_exists: meeting.has_post_notes?,
+			note_type: "Post" %>
+	</div>
+	<p>
+		<i class="fa fa-circle"></i>
+		Post Notes
+	</p>
+	<br>
+	<p id="post-note-body">
+		<% if meeting.has_post_notes? %>
+			<%= meeting.post_note_content %>
+		<% else %>
+			<small class="medium-gray">Empty</small>
+		<% end %>
+	</p>
+	<% if meeting.has_post_notes? %>
+		<br>
+		<small class="medium-gray">
+			Last updated:
+			<%= time_ago_in_words(meeting.retrieve_note(3).updated_at) %> ago
+		</small>
+	<% end %>
+</div>
