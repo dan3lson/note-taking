@@ -94,13 +94,22 @@ body {
 .medium-gray {
   color: $medium-gray;
 }
-#meeting-show-header {
+.meeting-show-header {
   background: dodgerblue;
   color: #FFF;
 }
 .meeting-time {
   border-right: 1px solid;
   padding-right: 10px;
+}
+.navbar-fixed-bottom {
+  padding-top: 12px;
+
+  .col-xs-6 {
+    @extend .pointer;
+
+    font-size: 20px;
+  }
 }
 .pointer {
   cursor: pointer;
