@@ -28,12 +28,12 @@ module MeetingsHelper
 	end
 
 	# not tested
-	def meetings_for_today
-		Meeting.where("start_date >= ?", Time.zone.now.beginning_of_day)
+	def meetings_exist_today?
+		Meeting.today.any?
 	end
 
 	# not tested
 	def num_meetings_for_today
-		meetings_for_today.count
+		meetings_exist_today? ? Meeting.today.count : 0
 	end
 end

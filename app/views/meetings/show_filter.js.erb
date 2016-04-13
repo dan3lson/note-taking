@@ -1,0 +1,5 @@
+$("#meetings-index").hide();
+$("#meeting-show").hide();
+$('#meeting-show-filter-pre').hide().html(
+	"<%= j render(partial: 'meetings/show_filter', locals: { filtered_meetings: @filtered_meetings }) %>"
+).fadeIn(400);

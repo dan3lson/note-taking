@@ -21,11 +21,6 @@ class Meeting < ActiveRecord::Base
 		notes.map { |n| n.note_types }.flatten.map { |nr| nr.name }
 	end
 
-	# not tested
-	# def available_note_types
-	# 	NoteType.pluck(:name) - self.note_types
-	# end
-
 	def has_pre_notes?
 		note_types.include?("Pre")
 	end
@@ -44,7 +39,8 @@ class Meeting < ActiveRecord::Base
 	end
 
 	def retrieve_note(note_type_id)
-		NoteRecord.find_by(note: self.notes, note_type_id: note_type_id).note
+		nr = NoteRecord.find_by(note: self.notes, note_type_id: note_type_id)
+		nr.note ? nr : "note doesn\'t exist"
 	end
 
 	# not tested
@@ -80,5 +76,13 @@ class Meeting < ActiveRecord::Base
 	# not tested
 	def self.already_exists?(api_id)
 		exists?(api_id: api_id)
+	end
+
+	def self.today
+		where("start_date >= ?", Time.zone.now.beginning_of_day)
+	end
+
+	def self.today_filtered(note_type)
+		binding.pry
 	end
 end

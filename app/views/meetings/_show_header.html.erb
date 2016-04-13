@@ -1,0 +1,17 @@
+<div class="card" id="meeting-show-header">
+	<div class="inline-block meeting-time">
+		<small>
+			<%= meeting.start_date.strftime("%I:%M %p") %>
+			<br>
+			<span class="medium-gray">
+				<%= meeting.end_date.strftime("%I:%M %p") %>
+			</span>
+		</small>
+	</div>
+	<div class="inline-block card-left-padding">
+		<%= shorten(meeting.subject) %>
+		<br>
+		<%= render "notes/note_type_icons", meeting: meeting %>
+		<br>
+	</div>
+</div>

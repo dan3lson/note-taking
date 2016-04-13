@@ -1,12 +1,15 @@
 <section id="header-container">
 	<div class="row center">
 		<div class="col-sm-6 col-sm-offset-3">
-			<h1><%= todays_date %></h1>
+			<div id="today-link">
+				<%= link_to meetings_path, remote: true do %>
+					<h1><%= todays_date %></h1>
+				<% end %>
+			</div>
 			<p>
 				<% if session[:azure_access_token] %>
 					Hi <%= session[:username] %>,
-					<%= time_of_day_greeting %>.
-					It's currently <%= current_time %>.
+					you have <%= pluralize(num_meetings_for_today, "meeting") %> today.
 				<% else %>
 					<%= link_to "Please log in", get_login_url %> to view your meetings
 					and manage your notes.
@@ -18,18 +21,23 @@
 
 <section id="filter-container">
 	<div class="row center">
-		<div class="col-xs-6" id="today-link">
-			<%= link_to meetings_path, remote: true do %>
-				<i class="fa fa-list-alt fa-3x"></i>
-				<br>
-				Today
-				<span class="badge">
-					<%= num_meetings_for_today %>
-				</span>
-			<% end %>
+		<div class="col-xs-3 medium-gray">
+			<i class="fa fa-circle-o fa-2x"></i>
+			<br>
+			Pre
 		</div>
-		<div class="col-xs-6 medium-gray">
-			<i class="fa fa-sticky-note-o fa-3x"></i>
+		<div class="col-xs-3 medium-gray">
+			<i class="fa fa-dot-circle-o fa-2x"></i>
+			<br>
+			Current
+		</div>
+		<div class="col-xs-3 medium-gray">
+			<i class="fa fa-circle fa-2x"></i>
+			<br>
+			Post
+		</div>
+		<div class="col-xs-3 medium-gray">
+			<i class="fa fa-sticky-note-o fa-2x"></i>
 			<br>
 			Notes
 		</div>
