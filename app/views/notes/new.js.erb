@@ -1,20 +1,14 @@
-var note_type = "<%= @note_type.downcase %>";
+var note_type = "<%= @note_type %>";
 var partial = "<%= j render(partial: 'notes/new_form', locals: { meeting: @meeting, note: @note }) %>";
 
 $(".create-edit-note-container").hide().html(partial).fadeIn(400);
-scroll_to(".create-edit-note-container");
 change_dropdown_value(note_type, "#note_id");
+scroll_to(".create-edit-note-container");
 
 function change_dropdown_value(note_type, dropdown_selector) {
-	$(dropdown_selector).val(upcase_first_letter(note_type));
+	$(dropdown_selector).val(note_type);
 }
 
 function scroll_to(location) {
 	$("html, body").animate({ scrollTop: $(location).offset().top }, "slow");
 };
-
-function upcase_first_letter(string) {
-	return string.replace(string[0], function(letter) {
-		return letter.toUpperCase();
-	});
-}

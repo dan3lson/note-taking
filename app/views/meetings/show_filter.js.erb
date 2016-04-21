@@ -5,48 +5,96 @@ $('#meeting-show-filter').hide().html(
 ).fadeIn(400);
 
 var index = $(".filtered-meeting").data("filter-meeting-index");
-var $visible_meeting = $("#meeting-show-filter").children()[index];
+var $current_meeting = $("#meeting-show-filter").children()[index];
 var num_meetings = $(".filtered-meeting").length;
 var $prev_button = $(".fa-arrow-circle-left").parent();
 var $next_button = $(".fa-arrow-circle-right").parent();
 
-$($visible_meeting).siblings()
-								 .not("footer")
-								 .not(".create-edit-note-container")
-								 .hide();
+only_display_one_meeting($current_meeting);
 
-	$prev_button.click(function() {
-		index = index - 1;
-		next_meeting_elem = $("#meeting-show-filter").children()[index];
-		$visible_meeting = $(next_meeting_elem);
-		$visible_meeting.siblings()
-		.not("footer")
-		.not(".create-edit-note-container")
-		.hide();
-		$visible_meeting.fadeIn(400);
+if (num_meetings < 2) hide_footer();
 
-		if (index != 0) {
-			$next_button.show();
-		}
-		if (index == 0) {
-			$($(this).children()).hide();
-		}
-	});
+if (index == 0) hide_prev_button();
 
-	$next_button.click(function() {
-		index = index + 1;
-		next_meeting_elem = $("#meeting-show-filter").children()[index];
-		$visible_meeting = $(next_meeting_elem);
-		$visible_meeting.siblings()
+$prev_button.click(function() {
+	show_prev_meeting();
+	show_next_button();
+	reset_create_edit_note_container();
+	if (index == 0) hide_prev_button();
+});
+
+$next_button.click(function() {
+	show_next_meeting();
+	show_prev_button();
+	reset_create_edit_note_container();
+	if (index == num_meetings - 1) hide_next_button();
+});
+
+function show_next_button() {
+	$next_button.show();
+}
+
+function hide_next_button() {
+	$next_button.hide();
+}
+
+function show_prev_button() {
+	$prev_button.children().show();
+}
+
+function hide_prev_button() {
+	$prev_button.children().hide();
+}
+
+function hide_footer() {
+	$(".navbar-footer").hide();
+}
+
+function show_footer() {
+	$(".navbar-footer").show();
+}
+
+function reset_create_edit_note_container() {
+	var default_text = create_elem("small", "medium-gray");
+	default_text.append(
+		"Tap 'Add', 'Update', or 'Delete' above to create, " +
+		"edit, or remove a Pre, Current, or Post note for this meeting."
+	)
+	$(".create-edit-note-container").html(default_text)
+}
+
+function only_display_one_meeting(current_meeting) {
+	$(current_meeting).siblings()
 										.not("footer")
 										.not(".create-edit-note-container")
 										.hide();
-		$visible_meeting.fadeIn(400);
+}
 
-		if (index != 0) {
-			$($prev_button.children()).show();
-		}
-		if (index == num_meetings - 1) {
-			$(this).hide();
-		}
-	});
+function show_prev_meeting() {
+	index = index - 1;
+	var next_meeting_elem = $("#meeting-show-filter").children()[index];
+	$current_meeting = $(next_meeting_elem);
+	$current_meeting.siblings()
+									.not("footer")
+									.not(".create-edit-note-container")
+									.hide();
+	$current_meeting.fadeIn(400);
+}
+
+function show_next_meeting() {
+	index = index + 1;
+	var next_meeting_elem = $("#meeting-show-filter").children()[index];
+	$current_meeting = $(next_meeting_elem);
+	$current_meeting.siblings()
+									.not("footer")
+									.not(".create-edit-note-container")
+									.hide();
+	$current_meeting.fadeIn(400);
+}
+
+function create_elem(elem, elem_class, elem_id) {
+	elem_class = elem_class ||  null;
+	elem_id = elem_id || null;
+
+	return $("<" + elem + ">", { class: elem_class, id: elem_id });
+}
