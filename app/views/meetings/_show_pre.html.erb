@@ -1,5 +1,5 @@
 <div class="card">
-	<div class="pull-right" id="pre-note-btn-container">
+	<div class="pull-right" id="pre-note-btn-container-<%= meeting.id %>">
 		<%= render "notes/note_crud_links",
 			meeting: meeting,
 			note_exists: meeting.has_pre_notes?,
@@ -10,7 +10,7 @@
 		Pre Notes
 	</p>
 	<br>
-	<p id="pre-note-body">
+	<p id="pre-note-body-<%= meeting.id %>">
 		<% if meeting.has_pre_notes? %>
 			<%= meeting.pre_note_content %>
 		<% else %>

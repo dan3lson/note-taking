@@ -1,4 +1,5 @@
 var type = "<%= @note_type.downcase %>";
+var meeting_id = "<%= @meeting.id %>";
 
 display_updated_note(type);
 empty_create_edit_note_container();
@@ -16,20 +17,19 @@ function create_elem(elem, elem_class, elem_id) {
 	return $("<" + elem + ">", { class: elem_class, id: elem_id });
 }
 
-function display_success_message(location) {
+function display_success_message(section) {
 	var partial = "<%= j render(partial: 'notes/success_message', locals: { message: @message }) %>";
 
-	$(location).prepend(partial);
+	section.prepend(partial);
 	auto_close_alert(".alert-success", 2000);
 }
 
 function display_updated_note(type) {
-	var section = "#" + type + "-note-body";
+	var $section = $("#" + type + "-note-body-" + meeting_id);
 	var partial = "<%= j render(partial: 'notes/update_note', locals: { content: @note.content }) %>";
-
-	scroll_to($(section).parent());
-	$(section).hide().html(partial).fadeIn(400);
-	display_success_message(section);
+	scroll_to($section.parent());
+	$section.hide().html(partial).fadeIn(400);
+	display_success_message($section);
 }
 
 function empty_create_edit_note_container() {
