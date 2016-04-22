@@ -1,19 +1,16 @@
-$("#meetings-index").hide();
-$("#meeting-show").hide();
-$('#meeting-show-filter').hide().html(
-	"<%= j render(partial: 'meetings/show_filter', locals: { meetings: @meetings, note_type: @note_type }) %>"
-).fadeIn(400);
+var $ajax_container = $("#ajax-container");
+var show_filter_partial = "<%= j render(partial: 'meetings/show_filter', locals: { meetings: @meetings, note_type: @note_type }) %>";
+$ajax_container.empty();
+$ajax_container.hide().html(show_filter_partial).fadeIn(400);
 
 var index = $(".filtered-meeting").data("filter-meeting-index");
-var $current_meeting = $("#meeting-show-filter").children()[index];
+var $current_meeting = $ajax_container.children()[index];
 var num_meetings = $(".filtered-meeting").length;
 var $prev_button = $(".fa-arrow-circle-left").parent();
 var $next_button = $(".fa-arrow-circle-right").parent();
 
 only_display_one_meeting($current_meeting);
-
 if (num_meetings < 2) hide_footer();
-
 if (index == 0) hide_prev_button();
 
 $prev_button.click(function() {
@@ -72,7 +69,7 @@ function only_display_one_meeting(current_meeting) {
 
 function show_prev_meeting() {
 	index = index - 1;
-	var next_meeting_elem = $("#meeting-show-filter").children()[index];
+	var next_meeting_elem = $ajax_container.children()[index];
 	$current_meeting = $(next_meeting_elem);
 	$current_meeting.siblings()
 									.not("footer")
@@ -83,7 +80,7 @@ function show_prev_meeting() {
 
 function show_next_meeting() {
 	index = index + 1;
-	var next_meeting_elem = $("#meeting-show-filter").children()[index];
+	var next_meeting_elem = $ajax_container.children()[index];
 	$current_meeting = $(next_meeting_elem);
 	$current_meeting.siblings()
 									.not("footer")

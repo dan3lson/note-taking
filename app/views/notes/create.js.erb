@@ -1,24 +1,33 @@
-if ($("#meeting-show:visible").length == 0) {
-	var $section = $(".filtered-meeting:visible").find(".card").eq(1);
-} else {
-	var $section = $("#meeting-show").find(".card").eq(2);
-}
 var type = "<%= @note_type.name.downcase %>";
-var meeting_id = "<%= @meeting.id %>";
+var $note_body = $("#" + type + "-note-body");
+var $note_card = $note_body.parent();
+
 reset_form();
 refresh_note_btn_container();
 display_new_note(type);
 reset_create_edit_note_container();
 
+function auto_close_alert(selector, delay) {
+	setTimeout(function() { $(selector).fadeOut() }, delay);
+}
+
+function create_elem(elem, elem_class, elem_id) {
+	elem_class = elem_class ||  null;
+	elem_id = elem_id || null;
+	return $("<" + elem + ">", { class: elem_class, id: elem_id });
+}
+
 function display_new_note(type) {
 	var partial = "<%= j render(partial: 'notes/create', locals: { content: @content }) %>";
-	scroll_to($section);
-	$section.find("p").eq(1).hide().html(partial).fadeIn(400);
-	display_success_message($section);
+
+	scroll_to($note_card);
+	$note_body.hide().html(partial).fadeIn(400);
+	display_success_message($note_body);
 }
 
 function display_success_message(section) {
 	var partial = "<%= j render(partial: 'notes/success_message', locals: { message: @message }) %>";
+
 	section.prepend(partial);
 	auto_close_alert(".alert-success", 2000);
 }
@@ -33,8 +42,9 @@ function reset_create_edit_note_container() {
 }
 
 function refresh_note_btn_container() {
+	var meeting_id = "<%= @meeting.id %>";
 	var note_id = "<%= @note.id %>";
-	var $note_btn_container = $section.find(".pull-right");
+	var $note_btn_container = $("#" + type + "-note-btn-container");
 	var $edit_link_container = create_elem("small", "orange");
 	var $edit_link = $("<a>", {
 		"data-remote": "true",
@@ -50,6 +60,7 @@ function refresh_note_btn_container() {
 		href: "/notes/" + note_id + "?note_type=" + upcase_first_letter(type),
 		text: "Delete"
 	});
+
 	$edit_link_container.append($edit_link);
 	$delete_link_container.append($delete_link);
 	$note_btn_container.html($edit_link_container);
@@ -65,18 +76,6 @@ function reset_form() {
 function scroll_to(location) {
 	$("html, body").animate({ scrollTop: location.offset().top }, "slow");
 };
-
-function create_elem(elem, elem_class, elem_id) {
-	elem_class = elem_class ||  null;
-	elem_id = elem_id || null;
-	return $("<" + elem + ">", { class: elem_class, id: elem_id });
-}
-
-function auto_close_alert(selector, delay) {
-	setTimeout(function() {
-		$(selector).fadeOut()
-	}, delay);
-}
 
 function upcase_first_letter(string) {
 	return string.replace(string[0], function(letter) {

@@ -1,6 +1,5 @@
-$("#meeting-show").hide();
-$("#meeting-show-filter").hide();
+var $ajax_container = $("#ajax-container");
+var index_partial = "<%= j render(partial: 'meetings/index', locals: { meetings: @meetings }) %>"
+$ajax_container.empty();
+$ajax_container.hide().html(index_partial).fadeIn(400);
 $("#num-meetings-for-today").html("<%= pluralize(@meetings.count, 'meeting') %>");
-$('#meetings-index').hide().html(
-	"<%= j render(partial: 'meetings/index', locals: { meetings: @meetings }) %>"
-).fadeIn(400);
