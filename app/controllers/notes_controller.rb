@@ -10,7 +10,6 @@ class NotesController < ApplicationController
 	end
 
 	def create
-
     @meeting = Meeting.find(params[:meeting_id])
     @note = Note.new(note_params)
     @note.meeting = @meeting
@@ -57,7 +56,7 @@ class NotesController < ApplicationController
 
 	def update
 		@note = Note.find(params[:id])
-		@note_type = params[:note_type]
+		@note_type = NoteType.find_by(name: params[:note_type])
 		@meeting = Meeting.find(params[:meeting_id])
 
 		if @note.update(note_params)

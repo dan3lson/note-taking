@@ -1,4 +1,4 @@
-$("#meetings-index").hide();
-$('#meeting-show').hide().html(
-	"<%= j render(partial: 'meetings/show', locals: { meeting: @meeting }) %>"
-).fadeIn(400);
+var $ajax_container = $("#ajax-container");
+var show_partial = "<%= j render(partial: 'meetings/show', locals: { meeting: @meeting }) %>"
+$ajax_container.empty();
+$ajax_container.hide().html(show_partial).fadeIn(400);

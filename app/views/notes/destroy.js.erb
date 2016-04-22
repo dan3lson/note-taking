@@ -1,4 +1,6 @@
 var type = "<%= @note_type.name.downcase %>";
+var $note_body = $("#" + type + "-note-body");
+var $note_card = $note_body.parent();
 var meeting_id = "<%= @meeting.id %>";
 
 refresh_note_btn_container();
@@ -7,9 +9,7 @@ display_destroy_message();
 empty_create_edit_note_container();
 
 function auto_close_alert(selector, delay) {
-	setTimeout(function() {
-		$(selector).fadeOut()
-	}, delay);
+	setTimeout(function() { $(selector).fadeOut() }, delay);
 }
 
 function create_elem(elem, elem_class, elem_id) {
@@ -19,14 +19,15 @@ function create_elem(elem, elem_class, elem_id) {
 }
 
 function display_destroy_message() {
-	var $note_body_container = $("#" + type + "-note-body-" + meeting_id);
 	var partial = "<%= j render(partial: 'notes/destroy', locals: { message: @message }) %>";
-	$note_body_container.prepend(partial);
+
+	$note_body.prepend(partial);
 	auto_close_alert(".alert-success", 2000);
 }
 
 function empty_create_edit_note_container() {
 	var default_text = create_elem("small", "medium-gray");
+
 	default_text.append(
 		"Tap 'Add', 'Update', or 'Delete' above to create, " +
 		"edit, or remove a Pre, Current, or Post note for this meeting."
@@ -35,14 +36,14 @@ function empty_create_edit_note_container() {
 }
 
 function refresh_note_body() {
-	var $note_body = $("#" + type + "-note-body-" + meeting_id);
 	var $default_text = create_elem("small", "medium-gray");
+
 	$default_text.append("Empty");
 	$note_body.hide().html($default_text).fadeIn(400);
 }
 
 function refresh_note_btn_container() {
-	var $note_btn_container = $("#" + type + "-note-btn-container-" + meeting_id);
+	var $note_btn_container = $("#" + type + "-note-btn-container");
 	var $add_link = $("<a>", {
 		"data-remote": "true",
 		href: "/meetings/" + meeting_id + "/notes/new?note_type=" +
@@ -50,6 +51,7 @@ function refresh_note_btn_container() {
 		text: "Add"
 	});
 	var $add_link_container = create_elem("small", "green");
+
 	$add_link_container.append($add_link);
 	$note_btn_container.hide().html($add_link_container).fadeIn(400);
 }
