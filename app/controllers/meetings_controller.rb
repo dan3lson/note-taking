@@ -41,7 +41,7 @@ class MeetingsController < ApplicationController
 				end
 			end
 
-			@meetings = Meeting.today
+			@meetings = Meeting.all
 
 			respond_to do |format|
 				format.html
@@ -61,7 +61,10 @@ class MeetingsController < ApplicationController
 	end
 
 	def show_filter
-		@meetings = Meeting.today
+		@index = params[:index].to_i
+		@meetings = Meeting.all
+		@num_meetings = @meetings.count
+		@meeting = @meetings[@index]
 		@note_type = params[:note_type]
 
 		respond_to do |format|

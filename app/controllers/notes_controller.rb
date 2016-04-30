@@ -69,7 +69,7 @@ class NotesController < ApplicationController
 			@message = "Changes not successfully made."
 
 			respond_to do |format|
-				format.js { render template: "notes/update_error_message.js.erb" }
+				format.js { render template: "notes/error_message.js.erb" }
 			end
 		end
 	end
@@ -87,10 +87,10 @@ class NotesController < ApplicationController
 				format.js
 			end
     else
-      flash.now[:danger] = "Yikes! Please try to delete that note again."
+      @message = "Yikes! Please try to delete that note again."
 
 			respond_to do |format|
-				format.js { render template: "notes/delete_error.js.erb" }
+				format.js { render template: "notes/error_message.js.erb" }
 			end
     end
   end

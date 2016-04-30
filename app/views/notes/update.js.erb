@@ -24,7 +24,7 @@ function display_success_message() {
 }
 
 function display_updated_note(type) {
-	var content = "<%= j render(partial: 'notes/update_note', locals: { content: @note.content }) %>";
+	var content = "<%= j render(partial: 'notes/content', locals: { content: @note.content }) %>";
 	var last_updated = "<%= j render(partial: 'notes/last_updated', locals: { meeting: @meeting, note_id: @note_type.id }) %>";
 
 	scroll_to($note_card);

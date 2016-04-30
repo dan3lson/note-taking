@@ -26,14 +26,14 @@
 <section id="filter-container">
 	<div class="row center">
 		<div class="col-xs-3">
-			<%= link_to meeting_show_filter_path(note_type: "pre"), remote: true do %>
+			<%= link_to meeting_show_filter_path(note_type: "pre", index: 0), remote: true do %>
 				<i class="fa fa-circle-o fa-2x"></i>
 				<br>
 				Pre
 			<% end %>
 		</div>
 		<div class="col-xs-3">
-			<%= link_to meeting_show_filter_path(note_type: "current"),
+			<%= link_to meeting_show_filter_path(note_type: "current", index: 0),
 					remote: true do %>
 				<i class="fa fa-dot-circle-o fa-2x"></i>
 				<br>
@@ -41,7 +41,7 @@
 			<% end %>
 		</div>
 		<div class="col-xs-3">
-			<%= link_to meeting_show_filter_path(note_type: "post"),
+			<%= link_to meeting_show_filter_path(note_type: "post", index: 0),
 					remote: true do %>
 				<i class="fa fa-circle fa-2x"></i>
 				<br>
