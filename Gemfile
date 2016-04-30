@@ -36,6 +36,8 @@ gem 'faker'
 gem 'oauth2'
 # Simply send and receive REST requests
 gem 'faraday'
+# Paginate pages
+gem 'will_paginate', '~> 3.1.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views

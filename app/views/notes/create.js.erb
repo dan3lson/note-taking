@@ -4,7 +4,7 @@ var $note_card = $note_body.parent();
 
 reset_form();
 refresh_note_btn_container();
-display_new_note(type);
+display_new_note();
 reset_create_edit_note_container();
 
 function auto_close_alert(selector, delay) {
@@ -17,8 +17,8 @@ function create_elem(elem, elem_class, elem_id) {
 	return $("<" + elem + ">", { class: elem_class, id: elem_id });
 }
 
-function display_new_note(type) {
-	var partial = "<%= j render(partial: 'notes/create', locals: { content: @content }) %>";
+function display_new_note() {
+	var partial = "<%= j render(partial: 'notes/content', locals: { content: @note_content }) %>";
 
 	scroll_to($note_card);
 	$note_body.hide().html(partial).fadeIn(400);

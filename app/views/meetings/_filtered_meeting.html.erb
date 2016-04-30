@@ -1,0 +1,12 @@
+<div class="filtered-meeting">
+	<%= render "meetings/show_header", meeting: meeting %>
+	<% if note_type == "pre" %>
+		<%= render "meetings/show_pre", meeting: meeting %>
+	<% elsif note_type == "current" %>
+		<%= render "meetings/show_current", meeting: meeting %>
+	<% elsif note_type == "post" %>
+		<%= render "meetings/show_post", meeting: meeting %>
+	<% else %>
+		Yikes
+	<% end %>
+</div>
