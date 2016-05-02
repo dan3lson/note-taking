@@ -54,9 +54,8 @@ class MeetingsController < ApplicationController
 				@timeout_msg = "Unfortunately you\'ve been logged out. Please log in."
 
 				respond_to do |format|
-					format.html
+					format.html { redirect_to root_path}
 				end
-				redirect_to root_path
 			end
 		else
 			redirect_to root_path
