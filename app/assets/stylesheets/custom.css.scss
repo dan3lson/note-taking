@@ -117,6 +117,9 @@ body {
 .orange {
   color: $orange;
 }
+p {
+  overflow: auto;
+}
 .pointer {
   cursor: pointer;
 }
