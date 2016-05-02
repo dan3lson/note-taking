@@ -30,8 +30,8 @@ class MeetingsController < ApplicationController
 						ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
 					)
 					if e["Attendees"].any?
-						# m.attendees = e["Attendees"]
-						m.attendees = e["Attendees"]["EmailAddress"]["Name"]
+						m.attendees = e["Attendees"]
+						# m.attendees = e["Attendees"]["EmailAddress"]["Name"]
 					end
 
 					if Meeting.already_exists?(m.api_id)
@@ -62,7 +62,7 @@ class MeetingsController < ApplicationController
 				Rails.logger.info("SORRY, YOU HAVE BEEN LOGGED OUT.")
 				@timeout_msg = "Unfortunately you\'ve been logged out. Please log in."
 
-				render :js => "window.location.href = '#{root_path}'" 
+				render :js => "window.location.href = '#{root_path}'"
 			end
 		else
 			redirect_to root_path
