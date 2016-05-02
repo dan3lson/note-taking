@@ -30,12 +30,19 @@ class MeetingsController < ApplicationController
 						ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
 					)
 					if e["Attendees"].any?
-						m.attendees = e["Attendees"]
-						# m.attendees = e["Attendees"]["EmailAddress"]["Name"]
+						# m.attendees = e["Attendees"]
+						m.attendees = e["Attendees"]["EmailAddress"]["Name"]
 					end
 
 					if Meeting.already_exists?(m.api_id)
-						Rails.logger.info("Meeting #{m.id} #{m.subject} already exists.")
+						m.update_attributes(
+							subject: m.subject,
+							start_date: m.start_date,
+							end_date: m.end_date,
+							body: m.body,
+							attendees: m.attendees,
+						)
+						Rails.logger.info("Meeting #{m.id} #{m.subject} updated.")
 					else
 						if m.save
 							Rails.logger.info("Meeting #{m.id} successfully saved.")
@@ -52,11 +59,10 @@ class MeetingsController < ApplicationController
 					format.js
 				end
 			else
+				Rails.logger.info("SORRY, YOU HAVE BEEN LOGGED OUT.")
 				@timeout_msg = "Unfortunately you\'ve been logged out. Please log in."
 
-				respond_to do |format|
-					format.html { redirect_to root_path}
-				end
+				render :js => "window.location.href = '#{root_path}'" 
 			end
 		else
 			redirect_to root_path
