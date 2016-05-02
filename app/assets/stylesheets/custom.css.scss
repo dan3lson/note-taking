@@ -61,8 +61,11 @@ body {
 .clear {
   clear: both;
 }
-.orange {
-  color: $orange;
+.create-edit-note-container {
+  margin-bottom: 10em;
+}
+.filter-active {
+  color: dodgerblue;
 }
 #filter-container {
   background: #F5F5F5;
@@ -110,6 +113,9 @@ body {
 
     font-size: 20px;
   }
+}
+.orange {
+  color: $orange;
 }
 .pointer {
   cursor: pointer;

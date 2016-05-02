@@ -16,39 +16,50 @@ class MeetingsController < ApplicationController
 				request.headers['X-AnchorMailbox'] = email
 			end
 
-			@events = JSON.parse(response.body)['value']
+			begin
+				@events = JSON.parse(response.body)['value']
 
-			@events.each do |e|
-				m = Meeting.new
-				m.api_id = e["Id"]
-				m.organizer = "#{e["Organizer"]["EmailAddress"]["Name"]}, #{e["Organizer"]["EmailAddress"]["Address"]}"
-				m.subject = e["Subject"]
-				m.start_date = e["Start"]["DateTime"].to_datetime
-				m.end_date = e["End"]["DateTime"].to_datetime
-				m.body = Meeting.just_text(
-					ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
-				)
-				m.attendees = e["Attendees"] if e["Attendees"].any?
+				@events.each do |e|
+					m = Meeting.new
+					m.api_id = e["Id"]
+					m.organizer = "#{e["Organizer"]["EmailAddress"]["Name"]}, #{e["Organizer"]["EmailAddress"]["Address"]}"
+					m.subject = e["Subject"]
+					m.start_date = e["Start"]["DateTime"].to_datetime
+					m.end_date = e["End"]["DateTime"].to_datetime
+					m.body = Meeting.just_text(
+						ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
+					)
+					if e["Attendees"].any?
+						m.attendees = e["Attendees"]
+					end
 
-				if Meeting.already_exists?(m.api_id)
-					Rails.logger.info("Meeting #{m.id} #{m.subject} already exists.")
-				else
-					if m.save
-						Rails.logger.info("Meeting #{m.id} successfully saved.")
+					if Meeting.already_exists?(m.api_id)
+						Rails.logger.info("Meeting #{m.id} #{m.subject} already exists.")
 					else
-						Rails.logger.info("ERROR: Meeting #{m.id} not saved.")
+						if m.save
+							Rails.logger.info("Meeting #{m.id} successfully saved.")
+						else
+							Rails.logger.info("ERROR: Meeting #{m.id} not saved.")
+						end
 					end
 				end
-			end
 
-			@meetings = Meeting.all
+				@meetings = Meeting.all
 
-			respond_to do |format|
-				format.html
-				format.js
+				respond_to do |format|
+					format.html
+					format.js
+				end
+			rescue
+				@timeout_msg = "Unfortunately you\'ve been logged out. Please log in."
+
+				respond_to do |format|
+					format.html
+				end
+				redirect_to root_path
 			end
 		else
-			redirect_to root_url
+			redirect_to root_path
 		end
 	end
 

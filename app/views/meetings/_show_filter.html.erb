@@ -1,29 +1,29 @@
-<%= render "meetings/filtered_meeting", meeting: meeting, note_type: note_type %>
-
-<%= render "meetings/show_create_edit_note_container" %>
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<%= render "meetings/show_header", meeting: meeting %>
+		<%= render "meetings/show_attendees", meeting: meeting %>
+		<%= render "meetings/show_body", meeting: meeting %>
+		<%= render "meetings/filtered_meeting", meeting: meeting,
+																						note_type: note_type %>
+		<%= render "meetings/show_create_edit_note_container" %>
+	</div>
+</div>
 
 <footer class="navbar navbar-default navbar-fixed-bottom navbar-footer"
 				role="navigation">
 	<div class="center">
 		<% @meetings.each_with_index do |m, i| %>
-			<%= link_to meeting_show_filter_path(note_type: note_type, index: i),
-				title: m.subject, remote: true do %>
-				<%= render "notes/note_type_icons_default", note_type: note_type %>
-				<%#= i + 1 %>
-				&nbsp;
+			<% if index == i %>
+				<span class="filter-active">
+			<% else %>
+				<span>
 			<% end %>
+				<%= link_to meeting_show_filter_path(note_type: note_type, index: i),
+					title: m.subject, remote: true do %>
+					<%= render "notes/note_type_icons_default", note_type: note_type %>
+					&nbsp;
+				<% end %>
+			</span>
 		<% end %>
 	</div>
-	<!-- <div class="row center">
-		<div class="col-xs-6">
-			<i class="fa fa-arrow-circle-left"></i>
-			<span>Prev</span>
-		</div>
-		<div class="col-xs-6">
-			<i class="fa fa-arrow-circle-right"></i>
-			<span>
-				Next
-			</span>
-		</div>
-	</div> -->
  </footer>

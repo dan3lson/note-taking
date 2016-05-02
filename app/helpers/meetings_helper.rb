@@ -18,13 +18,13 @@ module MeetingsHelper
 	end
 
 	# not tested
-	def last_item?(index, length)
-		index == length - 1
+	def body_exists?(meeting)
+		!meeting.body.nil?
 	end
 
 	# not tested
-	def shorten(string)
-		truncate(string.upcase, length: 25)
+	def last_item?(index, length)
+		index == length - 1
 	end
 
 	# not tested

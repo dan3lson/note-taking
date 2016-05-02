@@ -1,0 +1,14 @@
+<div class="card">
+	<p>
+		<i class="fa fa-list-alt"></i>
+		Details
+	</p>
+	<br>
+	<p>
+		<% if body_exists?(meeting) %>
+			<%= meeting.body %>
+		<% else %>
+			<small class="medium-gray">None</small>
+		<% end %>
+	</p>
+</div>

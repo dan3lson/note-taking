@@ -1,24 +1,27 @@
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-2">
+	<div class="col-sm-6 col-sm-offset-3">
 		<% meetings.each do |m| %>
 			<div class="card">
-				<div class="inline-block meeting-time">
-					<small>
-						<%= m.start_date.strftime("%I:%M %p") %>
+				<strong>
+					<div class="inline-block meeting-time">
+						<small>
+							<%= m.start_date.strftime("%I:%M %p") %>
+							<br>
+							<span class="medium-gray">
+								<%= m.end_date.strftime("%I:%M %p") %>
+							</span>
+						</small>
+					</div>
+					<div class="inline-block card-left-padding meeting-name">
+						<%= link_to m.subject, m, { remote: true, title: m.subject } %>
 						<br>
-						<span class="medium-gray">
-							<%= m.end_date.strftime("%I:%M %p") %>
-						</span>
-					</small>
-				</div>
-				<div class="inline-block card-left-padding meeting-name">
-					<%= link_to shorten(m.subject), m, {
-						remote: true,
-						title: m.subject
-					} %>
+						<%= render "notes/note_type_icons_meeting", meeting: m %>
+						<br>
+					</div>
+				</strong>
+				<div>
 					<br>
-					<%= render "notes/note_type_icons_meeting", meeting: m %>
-					<br>
+					<%= truncate(m.body, length: 200) %>
 				</div>
 			</div>
 		<% end %>
