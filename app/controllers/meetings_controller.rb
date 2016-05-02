@@ -29,20 +29,25 @@ class MeetingsController < ApplicationController
 					m.body = Meeting.just_text(
 						ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
 					)
+					m.attendees = ""
+
 					if e["Attendees"].any?
-						m.attendees = e["Attendees"]
-						# m.attendees = e["Attendees"]["EmailAddress"]["Name"]
+						e["Attendees"].each do |attendee|
+							name = attendee["EmailAddress"]["Name"]
+							m.attendees << "#{name},"
+						end
 					end
 
 					if Meeting.already_exists?(m.api_id)
-						m.update_attributes(
+						mtg = Meeting.find_by(api_id: m.api_id)
+						mtg.update_attributes(
 							subject: m.subject,
 							start_date: m.start_date,
 							end_date: m.end_date,
 							body: m.body,
 							attendees: m.attendees,
 						)
-						Rails.logger.info("Meeting #{m.id} #{m.subject} updated.")
+						Rails.logger.info("Meeting #{mtg.id} #{mtg.subject} updated.")
 					else
 						if m.save
 							Rails.logger.info("Meeting #{m.id} successfully saved.")
