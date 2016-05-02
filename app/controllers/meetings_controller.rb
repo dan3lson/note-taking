@@ -30,7 +30,8 @@ class MeetingsController < ApplicationController
 						ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
 					)
 					if e["Attendees"].any?
-						m.attendees = e["Attendees"]["EmailAddress"]["Name"]
+						m.attendees = e["Attendees"]
+						# m.attendees = e["Attendees"]["EmailAddress"]["Name"]
 					end
 
 					if Meeting.already_exists?(m.api_id)
