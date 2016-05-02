@@ -16,7 +16,7 @@ class MeetingsController < ApplicationController
 				request.headers['X-AnchorMailbox'] = email
 			end
 
-			begin
+			if response.status == 200
 				@events = JSON.parse(response.body)['value']
 
 				@events.each do |e|
@@ -30,7 +30,7 @@ class MeetingsController < ApplicationController
 						ActionController::Base.helpers.strip_tags(e["Body"]["Content"])
 					)
 					if e["Attendees"].any?
-						m.attendees = e["Attendees"]
+						m.attendees = e["Attendees"]["EmailAddress"]["Name"]
 					end
 
 					if Meeting.already_exists?(m.api_id)
@@ -50,7 +50,7 @@ class MeetingsController < ApplicationController
 					format.html
 					format.js
 				end
-			rescue
+			else
 				@timeout_msg = "Unfortunately you\'ve been logged out. Please log in."
 
 				respond_to do |format|
